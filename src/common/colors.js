@@ -1,0 +1,9 @@
+export default {
+  COLOR_BOX_SHADOW: "rgba(115, 115, 115, 0.3)",
+
+  COLOR_NAV_TEXT: "#7D7D7D",
+
+  COLOR_FOOTER_BACKGROUND: "#5B5B5B",
+
+  COLOR_LIGHTGRAY_TEXT: "#D0D0D0",
+};
