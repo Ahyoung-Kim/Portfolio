@@ -6,24 +6,46 @@ import colors from "../../../common/colors";
 import HeaderText from "../../atomic/navigation/HeaderText";
 import NavWrapper from "../../molecule/navigation/NavWrapper";
 
-import { PC, Mobile } from "../../layout/MediaQuery";
+import { PC, Mobile, Tablet } from "../../layout/MediaQuery";
 import { minWidth } from "../../../common/size";
+import NavMenuButton from "../../atomic/navigation/NavMenuButton";
+import NavMenu from "../../molecule/navigation/NavMenu";
 
 const Navigation = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+
   return (
-    <Container>
-      <PC>
-        <Inner>
-          <HeaderText />
+    <>
+      <Container>
+        <PC>
+          <Inner style={{ width: "80%", minWidth: "729px" }}>
+            <HeaderText />
 
-          <NavWrapper />
-        </Inner>
-      </PC>
+            <NavWrapper />
+          </Inner>
+        </PC>
 
-      <Mobile>
-        <HeaderText />
-      </Mobile>
-    </Container>
+        <Tablet>
+          <Inner>
+            <HeaderText />
+
+            <NavMenuButton setOpenMenu={setOpenMenu} />
+          </Inner>
+
+          {openMenu && <NavMenu />}
+        </Tablet>
+
+        <Mobile>
+          <Inner>
+            <HeaderText />
+
+            <NavMenuButton setOpenMenu={setOpenMenu} />
+          </Inner>
+
+          {openMenu && <NavMenu />}
+        </Mobile>
+      </Container>
+    </>
   );
 };
 
@@ -32,9 +54,6 @@ export default Navigation;
 const Container = styled.div`
   width: 100%;
   min-width: ${minWidth};
-  height: 60px;
-  display: flex;
-  align-items: center;
   padding-left: 20px;
   padding-right: 20px;
   box-shadow: 0 5px 20px 0 ${colors.COLOR_BOX_SHADOW};
@@ -50,6 +69,6 @@ const Inner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
-  min-width: 729px;
+  width: 100%;
+  height: 60px;
 `;

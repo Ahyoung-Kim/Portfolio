@@ -2,6 +2,7 @@ import React from "react";
 
 import Information from "../organism/contents/Information";
 import AboutMe from "../organism/contents/AboutMe";
+import Skills from "../organism/contents/Skills";
 
 const MainPage = () => {
   return (
@@ -9,6 +10,8 @@ const MainPage = () => {
       <Information />
 
       <AboutMe />
+
+      <Skills />
     </div>
   );
 };
