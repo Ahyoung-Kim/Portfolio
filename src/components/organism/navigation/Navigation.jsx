@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styled from "styled-components";
 import colors from "../../../common/colors";
@@ -10,9 +10,20 @@ import { PC, Mobile, Tablet } from "../../layout/MediaQuery";
 import { minWidth, navigationHeight } from "../../../common/size";
 import NavMenuButton from "../../atomic/navigation/NavMenuButton";
 import NavMenu from "../../molecule/navigation/NavMenu";
+import { useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/" && !showNav) {
+      setShowNav(true);
+    } else if (location.pathname !== "/") {
+      setShowNav(false);
+    }
+  }, [location.pathname]);
 
   return (
     <>
@@ -21,7 +32,7 @@ const Navigation = () => {
           <Inner style={{ width: "80%", minWidth: "729px" }}>
             <HeaderText />
 
-            <NavWrapper />
+            {showNav && <NavWrapper />}
           </Inner>
         </PC>
 
@@ -29,7 +40,7 @@ const Navigation = () => {
           <Inner>
             <HeaderText />
 
-            <NavMenuButton setOpenMenu={setOpenMenu} />
+            {showNav && <NavMenuButton setOpenMenu={setOpenMenu} />}
           </Inner>
 
           {openMenu && <NavMenu setOpenMenu={setOpenMenu} />}
@@ -39,7 +50,7 @@ const Navigation = () => {
           <Inner>
             <HeaderText />
 
-            <NavMenuButton setOpenMenu={setOpenMenu} />
+            {showNav && <NavMenuButton setOpenMenu={setOpenMenu} />}
           </Inner>
 
           {openMenu && <NavMenu setOpenMenu={setOpenMenu} />}

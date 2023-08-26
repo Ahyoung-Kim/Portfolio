@@ -24,7 +24,9 @@ const Information = () => {
             <Name>김아영</Name>
             <Developer>웹 개발자 포트폴리오</Developer>
             <Description>
-              안녕하세요. <Highlight>도전과 경험</Highlight> 을 쫓는{" "}
+              안녕하세요.
+              <br />
+              <Highlight>도전과 경험</Highlight> 을 쫓는{" "}
               <Highlight>주니어 Frontend 개발자</Highlight> 김아영입니다.
               <br />
               Frontend와 더불어 <Highlight>Backend</Highlight> 에 대한 경험을

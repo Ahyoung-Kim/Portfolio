@@ -17,8 +17,10 @@ function App() {
         <Navigation />
 
         <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/test" element={<>world</>} />
+          <Route path="*" element={<MainPage />} />
+          <Route path="/projects" element={<>world</>}>
+            <Route path=":id" element={<>dd</>} />
+          </Route>
         </Routes>
 
         <Footer />
