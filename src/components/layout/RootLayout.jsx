@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { navigationHeight } from "../../common/size";
+import { navigationHeight, footerHeight } from "../../common/size";
 
 const RootLayout = ({ children }) => {
   return <Container>{children}</Container>;
@@ -12,6 +12,6 @@ const Container = styled.div`
   //   background-color: orange;
   min-height: 200vh;
   padding-top: ${navigationHeight};
-  padding-bottom: 100px;
+  padding-bottom: ${footerHeight};
   position: relative;
 `;

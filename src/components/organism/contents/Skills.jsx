@@ -30,7 +30,7 @@ const Skills = () => {
           />
 
           <SkillBox
-            label="Prgramming Languages"
+            label="Programming Languages"
             srcs={[
               "img/js.png",
               "img/c.png",

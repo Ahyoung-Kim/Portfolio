@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "../../../common/colors";
+import { footerHeight } from "../../../common/size";
 
 const Footer = () => {
   return (
@@ -14,7 +15,7 @@ export default Footer;
 
 const Container = styled.div`
   width: 100%;
-  height: 100px;
+  height: ${footerHeight};
   background-color: ${colors.COLOR_FOOTER_BACKGROUND};
   position: absolute;
   left: 0;
