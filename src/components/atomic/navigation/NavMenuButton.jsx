@@ -1,14 +1,16 @@
 import React from "react";
 
-import { Menu } from "@material-ui/icons";
 import styled from "styled-components";
 import colors from "../../../common/colors";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const NavMenuButton = ({ setOpenMenu }) => {
   return (
     <>
       <IconButton onClick={() => setOpenMenu((prev) => !prev)}>
-        <Menu style={{ fontSize: "20px", color: colors.COLOR_NAV_TEXT }} />
+        <FontAwesomeIcon icon={faBars} />
       </IconButton>
     </>
   );
@@ -17,8 +19,14 @@ const NavMenuButton = ({ setOpenMenu }) => {
 export default NavMenuButton;
 
 const IconButton = styled.div`
-  padding: 3px;
   border-radius: 100%;
   border: 1px solid ${colors.COLOR_GRAY_BORDER};
   cursor: pointer;
+  font-size: 1rem;
+  color: ${colors.COLOR_GRAY_TEXT};
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

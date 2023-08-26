@@ -2,6 +2,7 @@ import React from "react";
 
 import styled from "styled-components";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PC, Mobile, Tablet } from "../../layout/MediaQuery";
 
 const AboutText = ({ icon, text, smallText }) => {
@@ -9,7 +10,9 @@ const AboutText = ({ icon, text, smallText }) => {
     <>
       <PC>
         <Container style={{ width: "33%" }}>
-          <Icon>{icon}</Icon>
+          <Icon>
+            <FontAwesomeIcon icon={icon} />
+          </Icon>
 
           <TextWrapper>
             <Text>{text}</Text>
@@ -21,7 +24,9 @@ const AboutText = ({ icon, text, smallText }) => {
 
       <Mobile>
         <Container style={{ width: "100%" }}>
-          <Icon>{icon}</Icon>
+          <Icon>
+            <FontAwesomeIcon icon={icon} />
+          </Icon>
 
           <TextWrapper>
             <Text>{text}</Text>
@@ -33,7 +38,9 @@ const AboutText = ({ icon, text, smallText }) => {
 
       <Tablet>
         <Container style={{ width: "50%" }}>
-          <Icon>{icon}</Icon>
+          <Icon>
+            <FontAwesomeIcon icon={icon} />
+          </Icon>
 
           <TextWrapper>
             <Text>{text}</Text>
@@ -53,16 +60,16 @@ const Container = styled.div`
   align-items: center;
   padding: 1rem;
   // background-color: orange;
-  flex-wrap: wrap;
-  flex-shrink: 1;
 `;
 
 const Icon = styled.div`
-  width: 35px;
-  height: 35px;
+  width: 2.8rem;
+  height: 2.8rem;
+  font-size: 1.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  // background-color: orange;
 `;
 
 const TextWrapper = styled.div`
@@ -71,7 +78,7 @@ const TextWrapper = styled.div`
 
 const Text = styled.p`
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 30px;
   color: #5e5e5e;
 `;
