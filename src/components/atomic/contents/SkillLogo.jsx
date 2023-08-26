@@ -1,8 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 
+import { PC, Tablet, Mobile } from "../../layout/MediaQuery";
+
 const SkillLogo = ({ src }) => {
-  return <Logo src={src} />;
+  return (
+    <>
+      <PC>
+        <Logo src={src} />
+      </PC>
+
+      <Tablet>
+        <Logo src={src} style={{ width: "33%" }} />
+      </Tablet>
+
+      <Mobile>
+        <Logo src={src} style={{ width: "50%" }} />
+      </Mobile>
+    </>
+  );
 };
 
 export default SkillLogo;

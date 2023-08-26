@@ -4,12 +4,23 @@ import colors from "../../../common/colors";
 import styled from "styled-components";
 import NavigationType from "../../../constants/NavigationType";
 import NavText from "../../atomic/navigation/NavText";
+import useMoveScroll from "../../hooks/useMoveScroll";
 
 const NavMenu = ({ setOpenMenu }) => {
+  const onMove = useMoveScroll();
+
   return (
     <Container>
       {Object.keys(NavigationType).map((type) => (
-        <Text key={type}>{NavigationType[type]}</Text>
+        <Text
+          key={type}
+          onClick={() => {
+            setOpenMenu(false);
+            onMove(NavigationType[type]);
+          }}
+        >
+          {NavigationType[type]}
+        </Text>
       ))}
     </Container>
   );

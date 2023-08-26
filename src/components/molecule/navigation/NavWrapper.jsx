@@ -5,16 +5,22 @@ import styled from "styled-components";
 import NavText from "../../atomic/navigation/NavText";
 
 import NavigationType from "../../../constants/NavigationType";
+import useMoveScroll from "../../hooks/useMoveScroll";
 
 const NavWrapper = () => {
+  const onMove = useMoveScroll();
+
   return (
     <Container>
-      <NavText text={NavigationType.ABOUT_ME} onClick={() => {}} />
-      <NavText text={NavigationType.SKILLS} onClick={() => {}} />
-      <NavText text={NavigationType.PROJECTS} onClick={() => {}} />
-      <NavText text={NavigationType.ARCHIVE} onClick={() => {}} />
-      <NavText text={NavigationType.ACTIVITY} onClick={() => {}} />
-      <NavText text={NavigationType.CAREER} onClick={() => {}} />
+      {Object.keys(NavigationType).map((key) => (
+        <NavText
+          key={`nav_${key}`}
+          text={NavigationType[key]}
+          onClick={() => {
+            onMove(NavigationType[key]);
+          }}
+        />
+      ))}
     </Container>
   );
 };

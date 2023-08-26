@@ -7,7 +7,7 @@ import AboutBox from "../../molecule/contents/AboutBox";
 
 const AboutMe = () => {
   return (
-    <ContentsLayout bgColor="white">
+    <ContentsLayout bgColor="white" contentId={NavigationType.ABOUT_ME}>
       <ContentsHead text={NavigationType.ABOUT_ME} />
 
       <AboutBox />

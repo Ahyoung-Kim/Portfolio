@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import { PC, Mobile, Tablet } from "../../layout/MediaQuery";
 
-const AboutText = ({ label, icon, text, smallText }) => {
+const AboutText = ({ icon, text, smallText }) => {
   return (
     <>
       <PC>
@@ -67,10 +67,6 @@ const Icon = styled.div`
 
 const TextWrapper = styled.div`
   margin-left: 10px;
-`;
-
-const Label = styled.p`
-  font-weight: bold;
 `;
 
 const Text = styled.p`

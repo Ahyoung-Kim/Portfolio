@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import colors from "../../../common/colors";
 
 import HeaderText from "../../atomic/navigation/HeaderText";
 import NavWrapper from "../../molecule/navigation/NavWrapper";
 
 import { PC, Mobile, Tablet } from "../../layout/MediaQuery";
-import { minWidth } from "../../../common/size";
+import { minWidth, navigationHeight } from "../../../common/size";
 import NavMenuButton from "../../atomic/navigation/NavMenuButton";
 import NavMenu from "../../molecule/navigation/NavMenu";
 
@@ -32,7 +32,7 @@ const Navigation = () => {
             <NavMenuButton setOpenMenu={setOpenMenu} />
           </Inner>
 
-          {openMenu && <NavMenu />}
+          {openMenu && <NavMenu setOpenMenu={setOpenMenu} />}
         </Tablet>
 
         <Mobile>
@@ -42,7 +42,7 @@ const Navigation = () => {
             <NavMenuButton setOpenMenu={setOpenMenu} />
           </Inner>
 
-          {openMenu && <NavMenu />}
+          {openMenu && <NavMenu setOpenMenu={setOpenMenu} />}
         </Mobile>
       </Container>
     </>
@@ -70,5 +70,5 @@ const Inner = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 60px;
+  height: ${navigationHeight};
 `;
