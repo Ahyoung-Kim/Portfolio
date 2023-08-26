@@ -15,6 +15,7 @@ html {
 
 body {
   font-family: "Noto Sans KR";
+  font-weight: 500;
 }
 
 

@@ -5,10 +5,14 @@ import ContentsHead from "../../atomic/contents/ContentsHead";
 import NavigationType from "../../../constants/NavigationType";
 import SkillBox from "../../molecule/contents/SkillBox";
 import styled from "styled-components";
+import colors from "../../../common/colors";
 
 const Skills = () => {
   return (
-    <ContentsLayout bgColor="#B2DFDF" contentId={NavigationType.SKILLS}>
+    <ContentsLayout
+      bgColor={colors.COLOR_MINT_BACKGROUND}
+      contentId={NavigationType.SKILLS}
+    >
       <ContentsHead text={NavigationType.SKILLS} />
 
       <Wrapper>
