@@ -13,6 +13,6 @@ const Text = styled.p`
   font-weight: bold;
   color: ${colors.COLOR_NAV_TEXT};
   margin-left: 20px;
-  font-size: 1rem;
+  font-size: 0.8rem;
   cursor: pointer;
 `;

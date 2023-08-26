@@ -10,14 +10,18 @@ const HeaderText = () => {
     navigate("/");
   };
 
-  return <Text onClick={goMainPage}>Ahyoung's Portfolio</Text>;
+  return (
+    <Text className="header-text" onClick={goMainPage}>
+      Ahyoung's Portfolio
+    </Text>
+  );
 };
 
 export default HeaderText;
 
 const Text = styled.p`
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   cursor: pointer;
   //   color: rgba(255, 255, 255, 0.8);
 `;

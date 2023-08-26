@@ -14,7 +14,7 @@ import styled from "styled-components";
 import colors from "../../../common/colors";
 
 const iconStyle = {
-  fontSize: "35px",
+  fontSize: "2rem",
 };
 
 const AboutBox = () => {
@@ -45,7 +45,7 @@ const Container = styled.div`
   background-color: white;
   box-shadow: 5px 5px 10px ${colors.COLOR_BOX_SHADOW};
   border-radius: 5px;
-  padding: 20px;
+  padding: 1.2rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;

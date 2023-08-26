@@ -1,7 +1,5 @@
-import "./App.css";
-
+import { GlobalStyle } from "./styles";
 import { Route, Routes } from "react-router-dom";
-import { Reset } from "styled-reset";
 
 import RootLayout from "./components/layout/RootLayout";
 
@@ -13,8 +11,7 @@ import Footer from "./components/organism/footer/Footer";
 function App() {
   return (
     <>
-      {/* reset styles */}
-      <Reset />
+      <GlobalStyle />
 
       <RootLayout>
         <Navigation />

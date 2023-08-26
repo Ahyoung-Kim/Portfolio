@@ -8,11 +8,11 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 const SkillBox = ({ label, srcs }) => {
   return (
     <Box>
-      <Label>
-        <FontAwesomeIcon
+      <Label className="bold-text">
+        {/* <FontAwesomeIcon
           icon={faCode}
           style={{ marginRight: "5px", fontSize: "1.4rem" }}
-        />
+        /> */}
         {label}
       </Label>
       <Container>
@@ -38,6 +38,7 @@ const Container = styled.div`
 const Label = styled.p`
   width: 100%;
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-bottom: 7px;
+  color: #108c8c;
 `;

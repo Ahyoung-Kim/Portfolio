@@ -51,11 +51,13 @@ export default AboutText;
 const Container = styled.div`
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 1rem;
+  // background-color: orange;
+  flex-wrap: wrap;
+  flex-shrink: 1;
 `;
 
 const Icon = styled.div`
-  // background-color: orange;
   width: 35px;
   height: 35px;
   display: flex;

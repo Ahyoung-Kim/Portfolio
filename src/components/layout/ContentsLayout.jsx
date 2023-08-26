@@ -7,7 +7,7 @@ const ContentsLayout = ({ children, bgStyle = {}, bgColor = "white" }) => {
   return (
     <Container style={{ ...bgStyle, backgroundColor: bgColor }}>
       <PC>
-        <Contents style={{ width: "75%" }}>{children}</Contents>
+        <Contents style={{ width: "80%" }}>{children}</Contents>
       </PC>
 
       <Tablet>
