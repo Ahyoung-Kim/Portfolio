@@ -25,7 +25,7 @@ const Skills = () => {
               "img/js.png",
               "img/react.png",
               "img/RN.png",
-              "img/redux.png",
+              "img/redux-logo.png",
             ]}
           />
 
