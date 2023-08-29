@@ -22,7 +22,7 @@ const Activity = () => {
 
       <ArchiveActivityContainer justifyContent="flex-end">
         <ArchiveActivityBox
-          headText={"멋쟁이사자처럼"}
+          headText={"멋쟁이사자처럼 서강대"}
           imageSrc={"img/likelion.png"}
           descriptionText={"대학생 창업 IT 동아리"}
           descriptions={[
