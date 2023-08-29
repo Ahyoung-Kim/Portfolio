@@ -2,20 +2,23 @@ import React from "react";
 import styled from "styled-components";
 
 import { PC, Tablet, Mobile } from "../../layout/MediaQuery";
+import { PUBLIC_URL } from "../../../common/config";
 
 const SkillLogo = ({ src }) => {
+  const source = `${PUBLIC_URL}/${src}`;
+
   return (
     <>
       <PC>
-        <Logo src={src} />
+        <Logo src={source} />
       </PC>
 
       <Tablet>
-        <Logo src={src} style={{ width: "33%" }} />
+        <Logo src={source} style={{ width: "33%" }} />
       </Tablet>
 
       <Mobile>
-        <Logo src={src} style={{ width: "50%" }} />
+        <Logo src={source} style={{ width: "50%" }} />
       </Mobile>
     </>
   );

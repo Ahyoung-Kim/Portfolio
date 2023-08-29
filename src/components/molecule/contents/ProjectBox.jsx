@@ -1,18 +1,17 @@
 import React from "react";
 
 import styled from "styled-components";
-import colors from "../../../common/colors";
 
-import { PC, Mobile, Tablet, useMediaQueries } from "../../layout/MediaQuery";
-import ProjectHead from "../../atomic/contents/ProjectHead";
+import { useMediaQueries } from "../../layout/MediaQuery";
 import MonitorImage from "../../atomic/contents/MonitorImage";
-import ProductDescription from "./ProductDescription";
+import ProjectDescription from "./ProjectDescription";
 import GrayLine from "../../atomic/contents/GrayLine";
-import ProductSkills from "./ProductSkills";
+import ProjectSkills from "./ProjectSkills";
 import ProjectTitleBox from "./ProjectTitleBox";
+import GithubLink from "../../atomic/contents/GithubLink";
 
 const ProjectBox = () => {
-  const { isPc, isTablet, isMobile } = useMediaQueries();
+  const { isMobile } = useMediaQueries();
 
   return (
     <>
@@ -30,11 +29,13 @@ const ProjectBox = () => {
         </ImageBox>
 
         <DescriptionBox style={isMobile ? { width: "100%" } : null}>
-          <ProductDescription />
+          <ProjectDescription />
 
           <GrayLine />
 
-          <ProductSkills />
+          <ProjectSkills />
+
+          <GithubLink />
         </DescriptionBox>
       </Container>
     </>

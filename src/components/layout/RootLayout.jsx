@@ -10,7 +10,7 @@ export default RootLayout;
 
 const Container = styled.div`
   //   background-color: orange;
-  min-height: 200vh;
+  min-height: 100vh;
   padding-top: ${navigationHeight};
   padding-bottom: ${footerHeight};
   position: relative;

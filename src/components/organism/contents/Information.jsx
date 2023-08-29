@@ -5,12 +5,13 @@ import styled from "styled-components";
 import ContentsLayout from "../../layout/ContentsLayout";
 import { Mobile, PC, Tablet } from "../../layout/MediaQuery";
 import Highlight from "../../atomic/contents/Highlight";
+import { PUBLIC_URL } from "../../../common/config";
 
 const Information = () => {
   return (
     <ContentsLayout
       bgStyle={{
-        backgroundImage: `url(img/sky.jpeg)`,
+        backgroundImage: `url(${PUBLIC_URL}/img/sky.jpeg)`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top center",
         backgroundSize: "cover",
@@ -18,7 +19,7 @@ const Information = () => {
     >
       <PC>
         <Contents>
-          <ProfileImage src="img/profile-img.jpg" />
+          <ProfileImage src={`${PUBLIC_URL}/img/profile-img.jpg`} />
 
           <TextWrapper>
             <Name>김아영</Name>
@@ -26,13 +27,13 @@ const Information = () => {
             <Description>
               안녕하세요.
               <br />
-              <Highlight>도전과 경험</Highlight> 을 쫓는{" "}
-              <Highlight>주니어 Frontend 개발자</Highlight> 김아영입니다.
+              <Highlight>도전과 경험</Highlight>을 쫓는{" "}
+              <Highlight>주니어 Frontend 개발자</Highlight>김아영입니다.
               <br />
-              Frontend와 더불어 <Highlight>Backend</Highlight> 에 대한 경험을
+              Frontend와 더불어 <Highlight>Backend</Highlight>에 대한 경험을
               쌓고 있으며,
               <br /> 여러 문제에 직면하여 스스로에게{" "}
-              <Highlight>기회와 용기</Highlight> 를 만들어주고자 합니다.
+              <Highlight>기회와 용기</Highlight>를 만들어주고자 합니다.
             </Description>
           </TextWrapper>
         </Contents>

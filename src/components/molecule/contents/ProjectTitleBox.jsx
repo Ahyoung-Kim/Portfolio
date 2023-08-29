@@ -5,9 +5,15 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { useMediaQueries } from "../../layout/MediaQuery";
+import { useNavigate } from "react-router-dom";
 
 const ProjectTitleBox = ({ title }) => {
   const { isMobile } = useMediaQueries();
+  const naviagte = useNavigate();
+
+  const goProjectPage = () => {
+    naviagte("/projects/1");
+  };
 
   return (
     <TitleDiv>
@@ -17,6 +23,7 @@ const ProjectTitleBox = ({ title }) => {
       </Title>
 
       <div
+        onClick={goProjectPage}
         style={{
           flex: 1,
           display: "flex",

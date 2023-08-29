@@ -12,7 +12,7 @@ import {
   faCommentDots,
 } from "@fortawesome/free-solid-svg-icons";
 
-const ProductDescription = ({
+const ProjectDescription = ({
   type,
   period,
   description,
@@ -96,7 +96,7 @@ const ProductDescription = ({
   );
 };
 
-export default ProductDescription;
+export default ProjectDescription;
 
 const TextWrapper = styled.div`
   display: flex;
@@ -109,10 +109,9 @@ const TextItemWrapper = styled.div`
 `;
 
 const TextItem = styled.div`
-  font-size: 0.8rem;
   padding-bottom: 0.6rem;
   display: flex;
-  line-height: 1.2rem;
+  line-height: 1.5rem;
 `;
 
 const Icon = styled.div``;
@@ -123,8 +122,7 @@ const Text = styled.p`
 `;
 
 const TextUl = styled.ul`
-  line-height: 1.2rem;
-  font-size: 0.8rem;
+  line-height: 1.5rem;
   color: ${colors.COLOR_GRAY_TEXT};
   padding-left: 2rem;
   //   background-color: orange;

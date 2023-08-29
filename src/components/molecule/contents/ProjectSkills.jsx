@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../../../common/colors";
 
-const ProductSkills = ({ skills }) => {
+const ProjectSkills = ({ skills }) => {
   return (
     <Container>
       <SkillContainer style={{ backgroundColor: colors.COLOR_FRONTEND }}>
@@ -19,7 +19,7 @@ const ProductSkills = ({ skills }) => {
   );
 };
 
-export default ProductSkills;
+export default ProjectSkills;
 
 const Container = styled.div`
   width: 100%;

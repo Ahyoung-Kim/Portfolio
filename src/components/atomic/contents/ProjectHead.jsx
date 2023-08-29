@@ -13,5 +13,5 @@ const Container = styled.p`
   font-size: 1.3rem;
   padding: 0 0.6rem;
   border-left: 0.4rem solid black;
-  margin-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
 `;

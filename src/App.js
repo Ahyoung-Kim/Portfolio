@@ -7,6 +7,7 @@ import RootLayout from "./components/layout/RootLayout";
 import MainPage from "./components/page/MainPage";
 import Navigation from "./components/organism/navigation/Navigation";
 import Footer from "./components/organism/footer/Footer";
+import ProjectPage from "./components/page/ProjectPage";
 
 function App() {
   return (
@@ -18,9 +19,7 @@ function App() {
 
         <Routes>
           <Route path="*" element={<MainPage />} />
-          <Route path="/projects" element={<>world</>}>
-            <Route path=":id" element={<>dd</>} />
-          </Route>
+          <Route path="/projects/:id" element={<ProjectPage />} />
         </Routes>
 
         <Footer />
