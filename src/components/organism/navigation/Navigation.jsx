@@ -1,55 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import colors from "../../../common/colors";
+
+import { navigationHeight, minWidth } from "../../../common/size";
+import { useMediaQueries } from "../../layout/MediaQuery";
 
 import HeaderText from "../../atomic/navigation/HeaderText";
 import NavWrapper from "../../molecule/navigation/NavWrapper";
-
-import { PC, Mobile, Tablet, useMediaQueries } from "../../layout/MediaQuery";
-import { minWidth, navigationHeight } from "../../../common/size";
-import NavMenuButton from "../../atomic/navigation/NavMenuButton";
 import NavMenu from "../../molecule/navigation/NavMenu";
-import { useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const { isPc, isMobile, isTablet } = useMediaQueries();
-  const [openMenu, setOpenMenu] = useState(false);
-  const [showNav, setShowNav] = useState(true);
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === "/" && !showNav) {
-      setShowNav(true);
-    } else if (location.pathname !== "/") {
-      setShowNav(false);
-    }
-  }, [location.pathname]);
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <>
-      <Container>
-        {isPc ? (
-          <>
-            <Inner style={{ width: "80%", minWidth: "729px" }}>
-              <HeaderText />
+    <Container>
+      <Inner style={isPc ? { width: "80%", minWidth: "729px" } : {}}>
+        <HeaderText />
 
-              {showNav && <NavWrapper />}
-            </Inner>
-          </>
-        ) : isMobile || isTablet ? (
-          <>
-            <Inner>
-              <HeaderText />
+        <NavWrapper setShowMenu={setShowMenu} />
+      </Inner>
 
-              {showNav && <NavMenuButton setOpenMenu={setOpenMenu} />}
-            </Inner>
-
-            <NavMenu setOpenMenu={setOpenMenu} openMenu={openMenu} />
-          </>
-        ) : null}
-      </Container>
-    </>
+      {showMenu && <NavMenu showMenu={showMenu} setShowMenu={setShowMenu} />}
+    </Container>
   );
 };
 
@@ -58,9 +32,8 @@ export default Navigation;
 const Container = styled.div`
   width: 100%;
   min-width: ${minWidth};
-  padding-left: 20px;
-  padding-right: 20px;
-  // box-shadow: 0 5px 20px 0 ${colors.COLOR_BOX_SHADOW};
+  padding: 0 20px;
+  box-shadow: 0 5px 10px 0 ${colors.COLOR_BOX_SHADOW};
   background-color: white;
   position: fixed;
   z-index: 100;
@@ -69,10 +42,11 @@ const Container = styled.div`
 `;
 
 const Inner = styled.div`
+  width: 100%;
+  height: ${navigationHeight};
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: ${navigationHeight};
+  background-color: inherit;
 `;

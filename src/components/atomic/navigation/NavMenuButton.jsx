@@ -6,10 +6,10 @@ import colors from "../../../common/colors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-const NavMenuButton = ({ setOpenMenu }) => {
+const NavMenuButton = ({ onClick }) => {
   return (
     <>
-      <IconButton onClick={() => setOpenMenu((prev) => !prev)}>
+      <IconButton onClick={onClick}>
         <FontAwesomeIcon icon={faBars} />
       </IconButton>
     </>

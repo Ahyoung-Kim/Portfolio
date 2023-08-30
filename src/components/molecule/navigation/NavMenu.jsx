@@ -1,27 +1,28 @@
 import React, { useEffect } from "react";
 
 import colors from "../../../common/colors";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import NavigationType from "../../../constants/NavigationType";
 import NavText from "../../atomic/navigation/NavText";
 import useMoveScroll from "../../hooks/useMoveScroll";
 
-const NavMenu = ({ setOpenMenu, openMenu }) => {
+const NavMenu = ({ showMenu, setShowMenu }) => {
   const onMove = useMoveScroll();
 
   return (
-    <Container style={{ display: openMenu ? "flex" : "none" }}>
-      {Object.keys(NavigationType).map((type) => (
-        <Text
-          key={type}
-          onClick={() => {
-            setOpenMenu(false);
-            onMove(NavigationType[type]);
-          }}
-        >
-          {NavigationType[type]}
-        </Text>
-      ))}
+    <Container>
+      <DropDown>
+        {Object.keys(NavigationType).map((key) => (
+          <NavText
+            key={`navsmall_${key}`}
+            text={NavigationType[key]}
+            onClick={() => {
+              onMove(NavigationType[key]);
+              setShowMenu(false);
+            }}
+          />
+        ))}
+      </DropDown>
     </Container>
   );
 };
@@ -33,42 +34,26 @@ const Container = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: -1;
-  background-color: inherit;
-  // box-shadow: inherit;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  padding-bottom: 10px;
+  z-index: 1;
   overflow: hidden;
-
-  // @keyframes open {
-  //   0% {
-  //     transform: translateY(-100%);
-  //   }
-  //   100% {
-  //     transform: translateY(0);
-  //   }
-  // }
-  // @keyframes close {
-  //   0% {
-  //     transform: translateY(0);
-  //   }
-  //   100% {
-  //     transform: translateY(-100%);
-  //   }
-  // }
-  // animation: ${({ openMenu }) => `${openMenu} 0.5s ease`};
+  padding-bottom: 15px;
 `;
 
-const Text = styled.p`
-  font-weight: bold;
-  color: ${colors.COLOR_NAV_TEXT};
-  font-size: 0.8rem;
-  cursor: pointer;
-  //   background-color: orange;
-  width: 33%;
-  text-align: center;
-  margin: 5px 0;
-  text-decoration: underline;
+const dropDown = keyframes`
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px 0 ${colors.COLOR_BOX_SHADOW};
+  }
+`;
+
+const DropDown = styled.div`
+  background-color: white;
+  padding: 20px;
+  animation: ${dropDown} 0.5s ease forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 `;
