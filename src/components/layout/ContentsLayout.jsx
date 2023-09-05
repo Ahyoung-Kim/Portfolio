@@ -12,12 +12,6 @@ const ContentsLayout = ({
 }) => {
   const { inView, ref } = useScrollAnimation();
 
-  useEffect(() => {
-    if (inView) {
-      console.log(contentId);
-    }
-  }, [inView]);
-
   return (
     <>
       <Container

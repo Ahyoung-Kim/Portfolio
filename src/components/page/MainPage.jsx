@@ -7,12 +7,12 @@ import Archive from "../organism/contents/Archive";
 import Activity from "../organism/contents/Activity";
 import Projects from "../organism/contents/Projects";
 import Career from "../organism/contents/Career";
-
+import FullPage from "./FullPage";
 import MainLayout from "../layout/MainLayout";
 
 const MainPage = () => {
   return (
-    <MainLayout>
+    <FullPage>
       <Information />
 
       <AboutMe />
@@ -26,7 +26,7 @@ const MainPage = () => {
       <Activity />
 
       <Career />
-    </MainLayout>
+    </FullPage>
   );
 };
 

@@ -1,15 +1,18 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useRef, useState } from "react";
 
 import useWheel from "../hooks/useWheel";
 import styled from "styled-components";
+import MainMenu from "../organism/menu/MainMenu";
+import StatusBar from "../atomic/section/StatusBar";
 
 const MainLayout = ({ children }) => {
-  const [curSection, setCurSection] = useState(0);
+  const currentSection = useRef(0);
+  const [curr, setCurr] = useState(0);
 
   const handleMouseWheel = useCallback((ref, deltaY, scrollTop) => {
     const pageHeight = window.innerHeight;
 
-    let dest = Math.ceil(scrollTop / pageHeight);
+    let dest = currentSection.current;
     const length = ref.current?.children?.length;
 
     if (deltaY > 0) {
@@ -24,7 +27,8 @@ const MainLayout = ({ children }) => {
       return;
     }
 
-    setCurSection(dest);
+    setCurr(dest);
+    currentSection.current = dest;
     ref.current?.scrollTo({
       top: pageHeight * dest,
       left: 0,
@@ -32,9 +36,30 @@ const MainLayout = ({ children }) => {
     });
   }, []);
 
+  const moveToSection = (index) => {
+    if (!ref.current) return;
+
+    const pageHeight = window.innerHeight;
+
+    setCurr(index);
+    currentSection.current = index;
+    ref.current?.scrollTo({
+      top: pageHeight * index,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   const ref = useWheel(handleMouseWheel);
 
-  return <Layout ref={ref}>{children}</Layout>;
+  return (
+    <Layout ref={ref}>
+      <MainMenu moveToSection={moveToSection} />
+
+      <StatusBar currentSection={curr} />
+      {children}
+    </Layout>
+  );
 };
 
 export default MainLayout;
@@ -42,5 +67,7 @@ export default MainLayout;
 const Layout = styled.div`
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  overflow-y: hidden;
+  position: relative;
+  background-color: white;
 `;
