@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import styled from "styled-components";
 import { PC, Tablet, Mobile } from "./MediaQuery";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const ContentsLayout = ({
   children,
@@ -9,9 +10,18 @@ const ContentsLayout = ({
   bgColor = "white",
   contentId,
 }) => {
+  const { inView, ref } = useScrollAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      console.log(contentId);
+    }
+  }, [inView]);
+
   return (
     <>
       <Container
+        ref={ref}
         id={contentId}
         style={{ ...bgStyle, backgroundColor: bgColor }}
       >
@@ -36,6 +46,7 @@ export default ContentsLayout;
 const Container = styled.div`
   width: 100%;
   padding: 50px 15px;
+  min-height: 100vh;
 `;
 
 const Contents = styled.div`

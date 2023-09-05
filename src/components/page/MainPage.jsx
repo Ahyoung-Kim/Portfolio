@@ -8,9 +8,11 @@ import Activity from "../organism/contents/Activity";
 import Projects from "../organism/contents/Projects";
 import Career from "../organism/contents/Career";
 
+import MainLayout from "../layout/MainLayout";
+
 const MainPage = () => {
   return (
-    <>
+    <MainLayout>
       <Information />
 
       <AboutMe />
@@ -24,7 +26,7 @@ const MainPage = () => {
       <Activity />
 
       <Career />
-    </>
+    </MainLayout>
   );
 };
 
