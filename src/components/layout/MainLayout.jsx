@@ -4,6 +4,7 @@ import useWheel from "../hooks/useWheel";
 import styled from "styled-components";
 import MainMenu from "../organism/menu/MainMenu";
 import StatusBar from "../atomic/section/StatusBar";
+import { SECTION_LIMIT } from "../../constants/SectionList";
 
 const MainLayout = ({ children }) => {
   const currentSection = useRef(0);
@@ -13,7 +14,6 @@ const MainLayout = ({ children }) => {
     const pageHeight = window.innerHeight;
 
     let dest = currentSection.current;
-    const length = ref.current?.children?.length;
 
     if (deltaY > 0) {
       // scroll down
@@ -23,7 +23,7 @@ const MainLayout = ({ children }) => {
       dest--;
     }
 
-    if (dest < 0 || dest > length - 1) {
+    if (dest < 0 || dest > SECTION_LIMIT - 1) {
       return;
     }
 

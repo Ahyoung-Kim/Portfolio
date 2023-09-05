@@ -2,25 +2,33 @@ import React, { useEffect, useState } from "react";
 
 import styled from "styled-components";
 import { useMediaQueries } from "../../layout/MediaQuery";
-import SectionList from "../../../constants/SectionList";
+import SectionList, { SECTION_LIMIT } from "../../../constants/SectionList";
 import colors from "../../../common/colors";
 
 const StatusBar = ({ currentSection }) => {
   const { isPc } = useMediaQueries();
 
+  const size = `calc(100% / ${SECTION_LIMIT})`;
+  const position = `${currentSection * 100}%`;
+
   return (
     <Container className={isPc ? "pc-bar" : "mobile-bar"}>
       <Bar className={isPc ? "pc-bar" : "mobile-bar"}>
-        {Object.keys(SectionList).map((_, idx) => (
-          <Section
-            key={`section_bar_${_}`}
-            style={
-              currentSection === idx
-                ? { backgroundColor: colors.COLOR_PINK }
-                : {}
-            }
-          />
-        ))}
+        <Section
+          style={
+            isPc
+              ? {
+                  width: "100%",
+                  height: size,
+                  transform: `translateY(${position})`,
+                }
+              : {
+                  height: "100%",
+                  width: size,
+                  transform: `translateX(${position})`,
+                }
+          }
+        />
       </Bar>
     </Container>
   );
@@ -53,6 +61,8 @@ const Bar = styled.div`
   overflow: hidden;
   display: flex;
   gap: 0;
+  background-color: ${colors.COLOR_TRANSPARENT_BACKGROUND};
+  position: relative;
 
   &.pc-bar {
     flex-direction: column;
@@ -67,7 +77,13 @@ const Bar = styled.div`
 `;
 
 const Section = styled.div`
-  flex: 1;
-  background-color: ${colors.COLOR_TRANSPARENT_BACKGROUND};
+  //   flex: 1;
+  //   transition: 0.3s;
+
+  background-color: ${colors.COLOR_PINK};
+  border-radius: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
   transition: 0.3s;
 `;
