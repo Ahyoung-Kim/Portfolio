@@ -12,7 +12,7 @@ const MainMenu = ({ moveToSection }) => {
 
   return (
     <Container>
-      <MenuText />
+      <MenuText onClick={moveToSection.bind(this, 0)} />
       <MenuButton onClick={() => setOpenMenu(true)} />
 
       {openMenu && (
@@ -30,7 +30,7 @@ const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  //   background-color: aqua;
+  // background-color: rgba(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
   justify-content: space-between;

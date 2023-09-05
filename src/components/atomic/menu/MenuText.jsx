@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const MenuText = () => {
-  return <Text className="header-text">Ahyoung's Portfolio</Text>;
+const MenuText = ({ onClick }) => {
+  return (
+    <Text onClick={onClick} className="header-text">
+      Ahyoung's Portfolio
+    </Text>
+  );
 };
 
 export default MenuText;

@@ -32,5 +32,5 @@ export default {
   COLOR_DATABASE: "#D6D6D6",
 
   COLOR_TRANSPARENT_BACKGROUND: "rgba(176, 176, 176, 0.5)",
-  COLOR_PINK: "#f657d3",
+  COLOR_PINK: "#DF83CB",
 };

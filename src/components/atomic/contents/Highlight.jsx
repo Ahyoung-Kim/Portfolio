@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import colors from "../../../common/colors";
 
 const Highlight = ({ children }) => {
   return <Container>{children}</Container>;
@@ -14,6 +15,7 @@ const Container = styled.span`
   // font-size: 0.9rem;
   line-height: 1rem;
   color: #6b57e7;
+  // color: ${colors.COLOR_PINK};
   font-weight: bold;
   border-radius: 5px;
   margin: 0 0.5rem;

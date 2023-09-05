@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 
 const SubMenuText = ({ section, index, onClick }) => {
   return (
-    <Text onClick={onClick} style={{ animationDelay: `${index / 10}s` }}>
+    <Text onClick={onClick} style={{ animationDelay: `${index / 20}s` }}>
       {section.name}
     </Text>
   );

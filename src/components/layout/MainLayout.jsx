@@ -54,10 +54,11 @@ const MainLayout = ({ children }) => {
 
   return (
     <Layout ref={ref}>
-      <MainMenu moveToSection={moveToSection} />
+      {children}
 
       <StatusBar currentSection={curr} />
-      {children}
+
+      <MainMenu moveToSection={moveToSection} />
     </Layout>
   );
 };

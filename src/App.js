@@ -9,7 +9,7 @@ import Navigation from "./components/organism/navigation/Navigation";
 import Footer from "./components/organism/footer/Footer";
 import ProjectPage from "./components/page/ProjectPage";
 import Test from "./test/Test";
-import MainPage2 from "./components/page/MainPage2";
+import MainPage2 from "./components/page/old_MainPage";
 
 function App() {
   return (

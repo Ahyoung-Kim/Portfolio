@@ -1,32 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import Information from "../organism/contents/Information";
-import AboutMe from "../organism/contents/AboutMe";
-import Skills from "../organism/contents/Skills";
-import Archive from "../organism/contents/Archive";
-import Activity from "../organism/contents/Activity";
-import Projects from "../organism/contents/Projects";
-import Career from "../organism/contents/Career";
-import FullPage from "./FullPage";
+import styled from "styled-components";
+
 import MainLayout from "../layout/MainLayout";
+import InformationSection from "../template/section/InformationSection";
+import AboutMeSection from "../template/section/AboutMeSection";
+import SkillsSection from "../template/section/SkillsSection";
+import ProjectsSection from "../template/section/ProjectsSection";
+import ArchiveSection from "../template/section/ArchiveSection";
+import ActivitySection from "../template/section/ActivitySection";
+import CareerSection from "../template/section/CareerSection";
 
 const MainPage = () => {
   return (
-    <FullPage>
-      <Information />
+    <MainLayout>
+      <InformationSection />
 
-      <AboutMe />
+      <AboutMeSection />
 
-      <Skills />
+      <SkillsSection />
 
-      <Projects />
+      <ProjectsSection />
 
-      <Archive />
+      <ArchiveSection />
 
-      <Activity />
+      <ActivitySection />
 
-      <Career />
-    </FullPage>
+      <CareerSection />
+    </MainLayout>
   );
 };
 

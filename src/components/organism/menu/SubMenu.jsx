@@ -9,7 +9,7 @@ import SubMenuText from "../../atomic/menu/SubMenuText";
 const SubMenu = ({ setOpenMenu, moveToSection }) => {
   const [slideIn, setSlideIn] = useState(true);
 
-  const closeMenu = (callback) => {
+  const closeMenu = () => {
     setSlideIn(false);
     setTimeout(() => {
       setOpenMenu(false);
@@ -29,19 +29,22 @@ const SubMenu = ({ setOpenMenu, moveToSection }) => {
 
   return (
     <>
-      <Container onClick={onBackgroundClick} />
-      <Menu className={slideIn ? "slideIn" : "slideOut"}>
-        <MenuWrapper>
-          {Object.keys(SectionList).map((key, index) => (
-            <SubMenuText
-              key={`sub_${key}`}
-              section={SectionList[key]}
-              index={index}
-              onClick={onTextClick.bind(this, index)}
-            />
-          ))}
-        </MenuWrapper>
-      </Menu>
+      <Container onClick={onBackgroundClick}>
+        <Menu className={slideIn ? "slideIn" : "slideOut"}>
+          <MenuWrapper>
+            {Object.keys(SectionList).map((key, index) => (
+              <SubMenuText
+                key={`sub_${key}`}
+                section={SectionList[key]}
+                index={index}
+                onClick={onTextClick.bind(this, index)}
+              />
+            ))}
+          </MenuWrapper>
+
+          <Copyright>ⓒ 2023. Ahyoung Kim. All rights reserved</Copyright>
+        </Menu>
+      </Container>
     </>
   );
 };
@@ -72,16 +75,21 @@ const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba(0, 0, 0, 0.2);
 `;
 
 const Menu = styled.div`
   width: max-content;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  right: 0;
+  max-width: 80%;
+  height: 100%;
   background: linear-gradient(180deg, #f048c1 25.5%, #b200cf 84.5%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10% 5% 5%;
 
   &.slideIn {
     animation: ${slideIn} 0.5s ease;
@@ -93,8 +101,15 @@ const Menu = styled.div`
 
 const MenuWrapper = styled.div`
   // background-color: orange;
+  max-height: 70%;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 5rem 6rem 0 4rem;
+  padding: 5% 0;
+`;
+
+const Copyright = styled.div`
+  // display: flex;
+  // align-items: center;
 `;
