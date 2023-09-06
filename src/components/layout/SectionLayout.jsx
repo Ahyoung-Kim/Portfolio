@@ -21,7 +21,7 @@ export default SectionLayout;
 const Container = styled.div`
   width: 100%;
   height: 100vh;
-  overflow-y: hidden;
+  // overflow-y: hidden;
   padding: 4rem 5%;
 `;
 
@@ -40,6 +40,7 @@ const Contents = styled.div`
   width: 100%;
   height: 100%;
   overflow-x: auto;
+  // overflow-y: hidden;
   // background-color: orange;
   display: flex;
   flex-direction: column;
