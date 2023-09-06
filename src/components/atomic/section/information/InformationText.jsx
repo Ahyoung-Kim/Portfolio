@@ -40,13 +40,13 @@ const Container = styled.div`
 
 const BigText = styled.p`
   font-weight: bold;
-  font-size: 2.2rem;
-  line-height: 3.5rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-bottom: 10px;
 `;
 
 const SmallText = styled.p`
   color: ${colors.COLOR_GRAY_TEXT};
-  font-size: 1.5rem;
-  line-height: 3rem;
+  font-size: 1rem;
+  line-height: 2rem;
 `;

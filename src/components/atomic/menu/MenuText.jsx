@@ -14,5 +14,5 @@ export default MenuText;
 const Text = styled.div`
   cursor: pointer;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 `;

@@ -6,7 +6,7 @@ import SectionList from "../../../constants/SectionList";
 import SectionLayout from "../../layout/SectionLayout";
 
 const AboutMeSection = () => {
-  return <SectionLayout section={SectionList.ABOUT_ME}></SectionLayout>;
+  return <SectionLayout section={SectionList.ABOUT_ME}>about me</SectionLayout>;
 };
 
 export default AboutMeSection;

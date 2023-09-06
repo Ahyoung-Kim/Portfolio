@@ -21,12 +21,8 @@ const useWheel = (callback) => {
   };
 
   const handleMouseWheel = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     onScroll(e.deltaY);
-  };
-
-  const handleScroll = (e) => {
-    e.preventDefault();
   };
 
   const onTouchStart = (e) => {
@@ -45,14 +41,12 @@ const useWheel = (callback) => {
     if (!currentRef) return;
 
     currentRef.addEventListener("wheel", handleMouseWheel);
-    currentRef.addEventListener("scroll", handleScroll);
     currentRef.addEventListener("touchstart", onTouchStart);
     currentRef.addEventListener("touchend", onTouchEnd);
 
     return () => {
       // 메모리 누수 방지를 위한 이벤트 제거
       currentRef.removeEventListener("wheel", handleMouseWheel);
-      currentRef.removeEventListener("scroll", handleScroll);
       currentRef.removeEventListener("touchstart", onTouchStart);
       currentRef.removeEventListener("touchend", onTouchEnd);
 

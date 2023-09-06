@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import useScrollAnimation from "../hooks/useScrollAnimation";
 
@@ -20,8 +20,7 @@ export default SectionLayout;
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
-  // overflow-y: hidden;
+  min-height: 100vh;
   padding: 4rem 5%;
 `;
 
@@ -38,10 +37,9 @@ const move = keyframes`
 
 const Contents = styled.div`
   width: 100%;
-  height: 100%;
   overflow-x: auto;
   // overflow-y: hidden;
-  // background-color: orange;
+  background-color: orange;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -16,6 +16,6 @@ const MenuButton = ({ onClick }) => {
 export default MenuButton;
 
 const Button = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   cursor: pointer;
 `;

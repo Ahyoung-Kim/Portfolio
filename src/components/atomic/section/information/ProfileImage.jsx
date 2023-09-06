@@ -9,7 +9,7 @@ const ProfileImage = () => {
 
   return (
     <Image
-      style={isMobile ? { width: "100%" } : { width: "40%" }}
+      style={isMobile ? { width: "60%" } : { width: "40%" }}
       src={`${PUBLIC_URL}/img/profile-img.jpg`}
     />
   );
