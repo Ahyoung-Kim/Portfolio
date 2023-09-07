@@ -39,10 +39,11 @@ export default StatusBar;
 const Container = styled.div`
   position: fixed;
   left: 0;
+  z-index: 11;
   display: flex;
   align-items: center;
   justify-content: center;
-  //   background-color: aqua;
+  // background-color: aqua;
 
   &.pc-bar {
     top: 0;

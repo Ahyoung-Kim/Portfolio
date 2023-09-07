@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import useWheel from "../hooks/useWheel";
 import styled from "styled-components";
@@ -7,110 +7,136 @@ import StatusBar from "../atomic/section/StatusBar";
 import { SECTION_LIMIT } from "../../constants/SectionList";
 
 const MainLayout = ({ children }) => {
-  const currentSection = useRef(0);
-  const scrollable = useRef(true);
+  const ref = useRef(null);
+  const currentIndex = useRef(0);
+  const timeoutRef = useRef(false);
+  const oldTouchY = useRef(0);
 
-  const [curr, setCurr] = useState(0);
-
-  const [height, setHeight] = useState(null);
-
-  const scrollTo = (top, dest) => {
-    setCurr(dest);
-    currentSection.current = dest;
-    ref.current?.scrollTo({
-      top,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
+  const [currentState, setCurrentState] = useState(0);
+  const [openMenu, setOpenMenu] = useState(false);
 
   const scrollDown = () => {
-    if (!ref.current) return;
-
-    const pageHeight = window.innerHeight;
-    const dest = currentSection.current + 1;
+    const dest = currentIndex.current + 1;
 
     if (dest > SECTION_LIMIT - 1) return;
 
-    const itemIndex = currentSection.current;
-    const currentItem = ref.current?.children.item(itemIndex);
-    const top = ref.current?.scrollTop + currentItem.clientHeight;
+    const currEl = ref.current?.children?.item(currentIndex.current);
+    const nextEl = ref.current?.children?.item(dest);
 
-    // if (currentItem.clientHeight > pageHeight) {
-    //   setHeight(`${currentItem.clientHeight}px`);
-    //   scrollable.current = false;
+    currEl.children.item(0).classList.remove("active");
+    nextEl.children.item(0).classList.add("active");
 
-    //   if (
-    //     window.scrollY > 0 &&
-    //     currentItem.scrollHeight - window.scrollY >= pageHeight
-    //   ) {
-    //     scrollable.current = true;
-    //   }
-    // }
-
-    scrollTo(top, dest);
+    currEl.style.top = "-100%";
+    currentIndex.current = dest;
+    setCurrentState(dest);
   };
 
   const scrollUp = () => {
-    if (!ref.current) return;
-
-    const pageHeight = window.innerHeight;
-    const dest = currentSection.current - 1;
+    const dest = currentIndex.current - 1;
 
     if (dest < 0) return;
 
-    const itemIndex = currentSection.current - 1;
-    const prevItem = ref.current?.children.item(itemIndex);
-    const currentItem = ref.current?.children.item(currentSection.current);
-    const top = ref.current?.scrollTop - prevItem.clientHeight;
+    const currEl = ref.current?.children?.item(currentIndex.current);
+    const prevEl = ref.current?.children?.item(dest);
 
-    if (currentItem.clientHeight > pageHeight) {
-    }
+    currEl.children.item(0).classList.remove("active");
+    // prevEl.children.item(0).classList.add("active");
 
-    scrollTo(top, dest);
+    prevEl.style.top = 0;
+    currentIndex.current = dest;
+    setCurrentState(dest);
   };
 
-  const handleMouseWheel = useCallback((ref, deltaY, scrollTop) => {
-    if (!ref.current) return;
+  const onScroll = (deltaY) => {
+    if (!timeoutRef.current && !openMenu) {
+      const currentItem = ref.current?.children?.item(currentIndex.current);
+      const contents = currentItem.children.item(0);
 
-    if (deltaY > 0) {
-      // scroll down
-      scrollDown();
-    } else {
-      // scroll up
-      scrollUp();
+      const diff = contents.clientHeight - window.innerHeight;
+      const scrollTop = Math.ceil(currentItem.scrollTop);
+
+      if (diff > 0) {
+        if (diff <= scrollTop && deltaY > 0) {
+          scrollDown();
+        } else if (scrollTop === 0 && deltaY < 0) {
+          scrollUp();
+        }
+      } else {
+        if (deltaY > 0) {
+          scrollDown();
+        } else {
+          scrollUp();
+        }
+      }
+
+      timeoutRef.current = window.setTimeout(() => {
+        timeoutRef.current = null;
+      }, 1500);
     }
-  }, []);
+  };
+
+  const handleMouseWheel = (e) => {
+    const { deltaY } = e;
+    onScroll(deltaY);
+  };
+
+  const onTouchStart = (e) => {
+    oldTouchY.current = e.changedTouches.item(0)?.clientY || 0;
+  };
+
+  const onTouchEnd = (e) => {
+    const currentY = e.changedTouches.item(0)?.clientY || 0;
+    const deltaY = oldTouchY.current - currentY;
+    const pageHeight = window.innerHeight;
+
+    if (Math.abs(deltaY) > pageHeight / 10) {
+      onScroll(deltaY);
+    }
+  };
 
   const moveToSection = (index) => {
-    if (!ref.current) return;
-    console.log(index);
+    const cnt = Math.abs(index - currentIndex.current);
 
-    // const deltaY = index - currentSection.current;
-    // const dir = deltaY > 0 ? 1 : -1;
-    // const clientHeight = ref.current?.children.item(index).clientHeight;
-    // const top = ref.current?.scrollTop + dir * clientHeight;
+    if (cnt == 0) return;
 
-    // scrollTo(top, index);
+    const scroll = index > currentIndex.current ? scrollDown : scrollUp;
 
-    setCurr(index);
-    currentSection.current = index;
-    ref.current?.scrollTo({
-      top: window.innerHeight * index,
-      left: 0,
-      behavior: "smooth",
-    });
+    for (let i = 0; i < cnt; i++) {
+      scroll();
+    }
   };
 
-  const ref = useWheel(handleMouseWheel);
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const container = ref.current;
+
+    container.addEventListener("wheel", handleMouseWheel);
+    container.addEventListener("touchstart", onTouchStart);
+    container.addEventListener("touchend", onTouchEnd);
+
+    return () => {
+      container.removeEventListener("wheel", handleMouseWheel);
+      container.removeEventListener("touchstart", onTouchStart);
+      container.removeEventListener("touchend", onTouchEnd);
+
+      if (timeoutRef.current) {
+        window.clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [openMenu]);
 
   return (
-    <Layout ref={ref} style={{ height: height ? height : "100vh" }}>
+    <Layout ref={ref}>
       {children}
 
-      <StatusBar currentSection={curr} />
+      <StatusBar currentSection={currentState} />
 
-      <MainMenu moveToSection={moveToSection} />
+      <MainMenu
+        moveToSection={moveToSection}
+        openMenu={openMenu}
+        setOpenMenu={setOpenMenu}
+      />
     </Layout>
   );
 };
@@ -120,7 +146,6 @@ export default MainLayout;
 const Layout = styled.div`
   width: 100%;
   height: 100vh;
-  overflow-y: hidden;
   position: relative;
   background-color: white;
 `;
