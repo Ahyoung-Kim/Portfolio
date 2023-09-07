@@ -1,26 +1,15 @@
 import React from "react";
 
 import styled from "styled-components";
-import { useMediaQueries } from "../../../layout/MediaQuery";
 import colors from "../../../../common/colors";
 
 const InformationText = () => {
-  const { isPc } = useMediaQueries();
-
   return (
-    <Container
-      style={
-        isPc
-          ? {
-              marginLeft: "5%",
-            }
-          : { width: "100%", marginTop: "5%" }
-      }
-    >
+    <Container>
       <BigText>
-        주니어 Frontend 개발자
+        주니어 <WhiteText>Frontend</WhiteText> 개발자
         <br />
-        김아영 입니다.
+        <WhiteText>김아영</WhiteText> 입니다.
       </BigText>
 
       <SmallText>
@@ -43,6 +32,11 @@ const BigText = styled.p`
   font-size: 2rem;
   line-height: 3rem;
   margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.6);
+`;
+
+const WhiteText = styled.span`
+  color: white;
 `;
 
 const SmallText = styled.p`

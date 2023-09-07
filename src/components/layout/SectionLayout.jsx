@@ -1,8 +1,15 @@
 import React, { useEffect } from "react";
 
 import styled, { keyframes } from "styled-components";
+import colors from "../../common/colors";
 
-const SectionLayout = ({ bgStyle = {}, children, section }) => {
+const SectionLayout = ({
+  bgStyle = {},
+  children,
+  section,
+  showName = true,
+  nameColor = colors.COLOR_PINK,
+}) => {
   return (
     <>
       <Container
@@ -12,7 +19,15 @@ const SectionLayout = ({ bgStyle = {}, children, section }) => {
           ...bgStyle,
         }}
       >
-        <Contents>{children}</Contents>
+        <Contents>
+          {showName && (
+            <SectionName className="bold-text" style={{ color: nameColor }}>
+              {section.name}
+            </SectionName>
+          )}
+
+          <ContentsWrapper>{children}</ContentsWrapper>
+        </Contents>
       </Container>
     </>
   );
@@ -50,9 +65,10 @@ const move = keyframes`
 
 const Contents = styled.div`
   width: 100%;
-  min-height: 100vh;
   padding: 4rem 5%;
-  // background-color: orange;
+  min-height: 100vh;
+  // background-color: white;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,4 +77,25 @@ const Contents = styled.div`
   &.active {
     animation: ${move} 2s ease forwards;
   }
+`;
+
+const SectionName = styled.p`
+  width: 100%;
+  font-size: 1.5rem;
+  height: 4rem;
+  // text-align: end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  // background-color: aqua;
+`;
+
+const ContentsWrapper = styled.div`
+  width: 100%;
+  min-height: calc(100vh - 12rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // background-color: orange;
 `;

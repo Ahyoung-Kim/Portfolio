@@ -37,7 +37,7 @@ const StatusBar = ({ currentSection }) => {
 export default StatusBar;
 
 const Container = styled.div`
-  position: fixed;
+  position: absolute;
   left: 0;
   z-index: 11;
   display: flex;

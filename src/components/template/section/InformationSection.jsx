@@ -39,7 +39,6 @@ export default InformationSection;
 const Wrapper = styled.div`
   // background-color: orange;
   display: flex;
-  // justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;

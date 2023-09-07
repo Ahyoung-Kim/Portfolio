@@ -52,13 +52,15 @@ const MainLayout = ({ children }) => {
       const currentItem = ref.current?.children?.item(currentIndex.current);
       const contents = currentItem.children.item(0);
 
-      const diff = contents.clientHeight - window.innerHeight;
-      const scrollTop = Math.ceil(currentItem.scrollTop);
+      const diff = contents.clientHeight - window.outerHeight;
+      // const scrollTop = Math.ceil(currentItem.scrollTop);
+      const scrollTop = currentItem.scrollTop;
 
       if (diff > 0) {
         if (diff <= scrollTop && deltaY > 0) {
           scrollDown();
         } else if (scrollTop === 0 && deltaY < 0) {
+          console.log(scrollTop);
           scrollUp();
         }
       } else {
@@ -87,9 +89,8 @@ const MainLayout = ({ children }) => {
   const onTouchEnd = (e) => {
     const currentY = e.changedTouches.item(0)?.clientY || 0;
     const deltaY = oldTouchY.current - currentY;
-    const pageHeight = window.innerHeight;
 
-    if (Math.abs(deltaY) > pageHeight / 10) {
+    if (deltaY !== 0) {
       onScroll(deltaY);
     }
   };
@@ -146,6 +147,7 @@ export default MainLayout;
 const Layout = styled.div`
   width: 100%;
   height: 100vh;
+  // height: calc(var(--vh, 1vh) * 100);
   position: relative;
   background-color: white;
 `;
