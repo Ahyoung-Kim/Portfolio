@@ -9,7 +9,7 @@ const ProfileImage = () => {
 
   return (
     <Image
-      style={isMobile ? { width: "60%" } : { width: "35%" }}
+      style={isMobile ? { width: "60%" } : { width: "30%" }}
       src={`${PUBLIC_URL}/img/profile-img.jpg`}
     />
   );
@@ -20,4 +20,5 @@ export default ProfileImage;
 const Image = styled.img`
   object-fit: contain;
   border-radius: 1rem;
+  display: inline-block;
 `;

@@ -1,6 +1,7 @@
 import React from "react";
 
 import styled from "styled-components";
+import colors from "../../../common/colors";
 
 import SectionList from "../../../constants/SectionList";
 import { PUBLIC_URL } from "../../../common/config";
@@ -17,10 +18,7 @@ const InformationSection = () => {
     <SectionLayout
       section={SectionList.INFORMATION}
       bgStyle={{
-        backgroundImage: `url(${PUBLIC_URL}/img/sky.jpeg)`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "top center",
-        backgroundSize: "cover",
+        background: "linear-gradient(to right, #fbc7d4, #9796f0)",
       }}
     >
       <Wrapper
@@ -28,7 +26,18 @@ const InformationSection = () => {
       >
         <ProfileImage />
 
-        <InformationText />
+        <InformationWrapper
+          style={
+            isPc
+              ? {
+                  marginLeft: "5%",
+                  width: "65%",
+                }
+              : { width: "100%", marginTop: "5%" }
+          }
+        >
+          <InformationText />
+        </InformationWrapper>
       </Wrapper>
     </SectionLayout>
   );
@@ -42,4 +51,8 @@ const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+`;
+
+const InformationWrapper = styled.div`
+  // background-color: orange;
 `;

@@ -52,15 +52,15 @@ const MainLayout = ({ children }) => {
       const currentItem = ref.current?.children?.item(currentIndex.current);
       const contents = currentItem.children.item(0);
 
-      const diff = contents.clientHeight - window.outerHeight;
+      const diff = contents.clientHeight - window.innerHeight;
       // const scrollTop = Math.ceil(currentItem.scrollTop);
       const scrollTop = currentItem.scrollTop;
 
       if (diff > 0) {
+        console.log({ diff, scrollTop });
         if (diff <= scrollTop && deltaY > 0) {
           scrollDown();
         } else if (scrollTop === 0 && deltaY < 0) {
-          console.log(scrollTop);
           scrollUp();
         }
       } else {
@@ -146,8 +146,8 @@ export default MainLayout;
 
 const Layout = styled.div`
   width: 100%;
-  height: 100vh;
-  // height: calc(var(--vh, 1vh) * 100);
+  // height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   position: relative;
   background-color: white;
 `;

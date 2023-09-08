@@ -47,7 +47,8 @@ const Container = styled.div`
 
   &.pc-bar {
     top: 0;
-    height: 100vh;
+    // height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     width: 5%;
   }
   &.mobile-bar {

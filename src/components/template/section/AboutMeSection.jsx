@@ -11,6 +11,7 @@ import ProfileImage from "../../atomic/section/information/ProfileImage";
 import InformationText from "../../atomic/section/information/InformationText";
 import LeftBarContainer from "../../atomic/common/LeftBarContainer";
 import colors from "../../../common/colors";
+import AboutMeBox from "../../organism/section/aboutMe/AboutMeBox";
 
 const AboutMeSection = () => {
   const { isPc, isMobile, isTablet } = useMediaQueries();
@@ -19,10 +20,7 @@ const AboutMeSection = () => {
     <SectionLayout
       section={SectionList.ABOUT_ME}
       bgStyle={{
-        backgroundImage: `url(${PUBLIC_URL}/img/sky.jpeg)`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "top center",
-        backgroundSize: "cover",
+        background: "linear-gradient(to right, #fbc7d4, #9796f0)",
       }}
     >
       <Wrapper
@@ -35,20 +33,14 @@ const AboutMeSection = () => {
             isPc
               ? {
                   marginLeft: "5%",
-                  width: "60%",
+                  width: "65%",
                 }
               : { width: "100%", marginTop: "5%" }
           }
         >
           <InformationText />
 
-          <LeftBarContainer
-            margin="2rem 0"
-            lineHeight="1.5rem"
-            color={colors.COLOR_GRAY_TEXT}
-          >
-            hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello
-          </LeftBarContainer>
+          <AboutMeBox />
         </InformationWrapper>
       </Wrapper>
     </SectionLayout>

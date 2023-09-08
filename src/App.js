@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { GlobalStyle } from "./styles";
 import { Route, Routes } from "react-router-dom";
 
@@ -12,6 +13,13 @@ import Test from "./test/Test";
 import MainPage2 from "./components/page/old_MainPage";
 
 function App() {
+  function setScreenSize() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  }
+  useEffect(() => {
+    setScreenSize();
+  });
   return (
     <>
       <GlobalStyle />

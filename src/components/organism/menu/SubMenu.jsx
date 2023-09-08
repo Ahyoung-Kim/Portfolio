@@ -71,7 +71,8 @@ to {
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   position: fixed;
   top: 0;
   left: 0;

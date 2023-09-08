@@ -11,7 +11,8 @@ const SkillsSection = () => {
     <SectionLayout
       section={SectionList.SKILLS}
       bgStyle={{
-        backgroundColor: colors.COLOR_MINT_BACKGROUND,
+        backgroundColor: "white",
+        // backgroundColor: colors.COLOR_MINT_BACKGROUND,
         // background: `linear-gradient(45deg, #f048c1 25.5%, ${colors.COLOR_GRAY_BACKGROUND} 84.5%)`,
       }}
     ></SectionLayout>

@@ -105,6 +105,7 @@ export default FullPage;
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow-y: hidden;
 `;

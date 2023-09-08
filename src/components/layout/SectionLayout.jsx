@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import styled, { keyframes } from "styled-components";
 import colors from "../../common/colors";
@@ -10,9 +10,12 @@ const SectionLayout = ({
   showName = true,
   nameColor = colors.COLOR_PINK,
 }) => {
+  const ref = useRef(null);
+
   return (
     <>
       <Container
+        ref={ref}
         id={section.id}
         style={{
           zIndex: section.zIndex,
@@ -37,7 +40,8 @@ export default SectionLayout;
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: white;
@@ -54,11 +58,13 @@ const Container = styled.div`
 
 const move = keyframes`
 0% {
-  transform: translateY(15vh);
+  // transform: translateY(15vh);
+  transform: scale(0.8);
   opacity: 0;
 }
 100% {
-  transform: translateY(0);
+  // transform: translateY(0);
+  transform: scale(1);
   opacity: 1;
 }
 `;
@@ -66,7 +72,8 @@ const move = keyframes`
 const Contents = styled.div`
   width: 100%;
   padding: 4rem 5%;
-  min-height: 100vh;
+  // min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   // background-color: white;
 
   display: flex;
@@ -92,7 +99,8 @@ const SectionName = styled.p`
 
 const ContentsWrapper = styled.div`
   width: 100%;
-  min-height: calc(100vh - 12rem);
+  // min-height: calc(100vh - 12rem);
+  min-height: calc(var(--vh, 1vh) * 100 - 12rem);
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -8,14 +8,24 @@ ${reset}
 
 ${fonts}
 
+:root {
+  --vh: 100%;
+}
+
 html {
   font-size: 16px;
   min-width: 320px;
+
+  height: 100vh;
+   height: var(--vh);
 }
 
 body {
   font-family: "Noto Sans KR";
   font-weight: 500;
+
+  height: 100vh;
+   height: var(--vh);
 }
 
 

@@ -10,7 +10,8 @@ const ProjectsSection = () => {
   return (
     <SectionLayout
       section={SectionList.PROJECTS}
-      bgStyle={{ backgroundColor: colors.COLOR_LAVENDAR_BACKGROUND }}
+      // bgStyle={{ backgroundColor: colors.COLOR_LAVENDAR_BACKGROUND }}
+      bgStyle={{ backgroundColor: "black" }}
     ></SectionLayout>
   );
 };

@@ -3,6 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../../../../common/colors";
 
+import LeftBarContainer from "../../common/LeftBarContainer";
+
 const InformationText = () => {
   return (
     <Container>
@@ -12,11 +14,13 @@ const InformationText = () => {
         <WhiteText>김아영</WhiteText> 입니다.
       </BigText>
 
-      <SmallText>
-        이러한것들을 좋아해요이러한것들을 좋아해요이러한것들을
-        좋아해요이러한것들을 좋아해요이러한것들을 좋아해요이러한것들을
-        좋아해요이러한것들을 좋아해요이러한것들을 좋아해요
-      </SmallText>
+      <LeftBarContainer>
+        <SmallText>
+          이러한것들을 좋아해요이러한것들을 좋아해요이러한것들을
+          좋아해요이러한것들을 좋아해요이러한것들을 좋아해요이러한것들을
+          좋아해요이러한것들을 좋아해요이러한것들을 좋아해요
+        </SmallText>
+      </LeftBarContainer>
     </Container>
   );
 };
@@ -31,7 +35,7 @@ const BigText = styled.p`
   font-weight: bold;
   font-size: 2rem;
   line-height: 3rem;
-  margin-bottom: 10px;
+  margin-bottom: 2rem;
   color: rgba(255, 255, 255, 0.6);
 `;
 
