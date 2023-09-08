@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  createContext,
+} from "react";
 
 import useWheel from "../hooks/useWheel";
 import styled from "styled-components";
@@ -6,13 +12,15 @@ import MainMenu from "../organism/menu/MainMenu";
 import StatusBar from "../atomic/section/StatusBar";
 import { SECTION_LIMIT } from "../../constants/SectionList";
 
+export const CurrentContext = createContext();
+
 const MainLayout = ({ children }) => {
   const ref = useRef(null);
   const currentIndex = useRef(0);
   const timeoutRef = useRef(false);
   const oldTouchY = useRef(0);
 
-  const [currentState, setCurrentState] = useState(0);
+  const [currentSection, setCurrentSection] = useState(0);
   const [openMenu, setOpenMenu] = useState(false);
 
   const scrollDown = () => {
@@ -28,7 +36,7 @@ const MainLayout = ({ children }) => {
 
     currEl.style.top = "-100%";
     currentIndex.current = dest;
-    setCurrentState(dest);
+    setCurrentSection(dest);
   };
 
   const scrollUp = () => {
@@ -44,7 +52,7 @@ const MainLayout = ({ children }) => {
 
     prevEl.style.top = 0;
     currentIndex.current = dest;
-    setCurrentState(dest);
+    setCurrentSection(dest);
   };
 
   const onScroll = (deltaY) => {
@@ -53,11 +61,10 @@ const MainLayout = ({ children }) => {
       const contents = currentItem.children.item(0);
 
       const diff = contents.clientHeight - window.innerHeight;
-      // const scrollTop = Math.ceil(currentItem.scrollTop);
-      const scrollTop = currentItem.scrollTop;
+      const scrollTop = Math.ceil(currentItem.scrollTop);
+      // const scrollTop = currentItem.scrollTop;
 
       if (diff > 0) {
-        console.log({ diff, scrollTop });
         if (diff <= scrollTop && deltaY > 0) {
           scrollDown();
         } else if (scrollTop === 0 && deltaY < 0) {
@@ -128,17 +135,19 @@ const MainLayout = ({ children }) => {
   }, [openMenu]);
 
   return (
-    <Layout ref={ref}>
-      {children}
+    <CurrentContext.Provider value={[currentSection, setCurrentSection]}>
+      <Layout ref={ref}>
+        {children}
 
-      <StatusBar currentSection={currentState} />
+        <StatusBar currentSection={currentSection} />
 
-      <MainMenu
-        moveToSection={moveToSection}
-        openMenu={openMenu}
-        setOpenMenu={setOpenMenu}
-      />
-    </Layout>
+        <MainMenu
+          moveToSection={moveToSection}
+          openMenu={openMenu}
+          setOpenMenu={setOpenMenu}
+        />
+      </Layout>
+    </CurrentContext.Provider>
   );
 };
 

@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 
 import styled, { keyframes } from "styled-components";
 import colors from "../../common/colors";
+import useCurrentSection from "../hooks/useCurrentSection";
+import { SECTION_LIMIT } from "../../constants/SectionList";
+import useIsSectionActive from "../hooks/useIsSectionActive";
 
 const SectionLayout = ({
   bgStyle = {},
@@ -11,16 +14,17 @@ const SectionLayout = ({
   nameColor = colors.COLOR_PINK,
 }) => {
   const ref = useRef(null);
+  const isActive = useIsSectionActive(section.index);
 
   return (
     <>
       <Container
-        ref={ref}
         id={section.id}
         style={{
           zIndex: section.zIndex,
           ...bgStyle,
         }}
+        ref={ref}
       >
         <Contents>
           {showName && (
