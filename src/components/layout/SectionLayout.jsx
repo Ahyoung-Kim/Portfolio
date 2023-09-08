@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 import styled, { keyframes } from "styled-components";
 import colors from "../../common/colors";
-import useCurrentSection from "../hooks/useCurrentSection";
-import { SECTION_LIMIT } from "../../constants/SectionList";
 import useIsSectionActive from "../hooks/useIsSectionActive";
 
 const SectionLayout = ({
@@ -26,7 +24,7 @@ const SectionLayout = ({
         }}
         ref={ref}
       >
-        <Contents>
+        <Contents className={isActive ? "active" : ""}>
           {showName && (
             <SectionName className="bold-text" style={{ color: nameColor }}>
               {section.name}

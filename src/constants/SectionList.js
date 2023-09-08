@@ -8,7 +8,7 @@ const section = (id, name, zIndex, index) => {
 };
 
 const SectionList = {
-  INFORMATION: section("information", "INFORMATION", 10, -7),
+  // INFORMATION: section("information", "INFORMATION", 10, -7),
   ABOUT_ME: section("aboutMe", "ABOUT ME", 9, -6),
   SKILLS: section("skills", "SKILLS", 8, -5),
   PROJECTS: section("projects", "PROJECTS", 7, -4),

@@ -9,8 +9,6 @@ import { useMediaQueries } from "../../layout/MediaQuery";
 import SectionLayout from "../../layout/SectionLayout";
 import ProfileImage from "../../atomic/section/information/ProfileImage";
 import InformationText from "../../atomic/section/information/InformationText";
-import LeftBarContainer from "../../atomic/common/LeftBarContainer";
-import colors from "../../../common/colors";
 import AboutMeBox from "../../organism/section/aboutMe/AboutMeBox";
 
 const AboutMeSection = () => {

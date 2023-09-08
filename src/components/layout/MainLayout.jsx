@@ -31,8 +31,8 @@ const MainLayout = ({ children }) => {
     const currEl = ref.current?.children?.item(currentIndex.current);
     const nextEl = ref.current?.children?.item(dest);
 
-    currEl.children.item(0).classList.remove("active");
-    nextEl.children.item(0).classList.add("active");
+    // currEl.children.item(0).classList.remove("active");
+    // nextEl.children.item(0).classList.add("active");
 
     currEl.style.top = "-100%";
     currentIndex.current = dest;
@@ -47,7 +47,7 @@ const MainLayout = ({ children }) => {
     const currEl = ref.current?.children?.item(currentIndex.current);
     const prevEl = ref.current?.children?.item(dest);
 
-    currEl.children.item(0).classList.remove("active");
+    // currEl.children.item(0).classList.remove("active");
     // prevEl.children.item(0).classList.add("active");
 
     prevEl.style.top = 0;

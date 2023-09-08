@@ -14,7 +14,7 @@ import CareerSection from "../template/section/CareerSection";
 const MainPage = () => {
   return (
     <MainLayout>
-      <InformationSection />
+      {/* <InformationSection /> */}
 
       <AboutMeSection />
 
