@@ -6,7 +6,7 @@ const LeftBarContainer = ({
   children,
   margin = 0,
   lineHeight = "1rem",
-  color = "black",
+  color = "inherit",
 }) => {
   return (
     <Container style={{ margin, lineHeight, color }}>{children}</Container>

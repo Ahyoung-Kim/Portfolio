@@ -7,8 +7,8 @@ import { PUBLIC_URL } from "../../../common/config";
 import { useMediaQueries } from "../../layout/MediaQuery";
 
 import SectionLayout from "../../layout/SectionLayout";
-import ProfileImage from "../../atomic/section/information/ProfileImage";
-import InformationText from "../../atomic/section/information/InformationText";
+import ProfileImage from "../../atomic/section/aboutMe/ProfileImage";
+import InformationText from "../../organism/section/aboutMe/InformationText";
 import AboutMeBox from "../../organism/section/aboutMe/AboutMeBox";
 
 const AboutMeSection = () => {

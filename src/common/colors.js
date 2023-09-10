@@ -35,4 +35,5 @@ export default {
 
   COLOR_TRANSPARENT_BACKGROUND: "rgba(176, 176, 176, 0.5)",
   COLOR_PINK: "#DF83CB",
+  COLOR_LINK: "#6459A8",
 };
