@@ -11,6 +11,7 @@ const SectionLayout = ({
   section,
   showName = true,
   nameColor = colors.COLOR_PINK,
+  justifyContent = "center",
 }) => {
   const ref = useRef(null);
   const { isPc } = useMediaQueries();
@@ -39,7 +40,9 @@ const SectionLayout = ({
             </SectionName>
           )}
 
-          <ContentsWrapper>{children}</ContentsWrapper>
+          <ContentsWrapper style={{ justifyContent }}>
+            {children}
+          </ContentsWrapper>
         </Contents>
       </Container>
     </>
@@ -111,6 +114,5 @@ const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   // background-color: orange;
 `;

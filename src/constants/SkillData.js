@@ -41,6 +41,10 @@ export default [
         src: "img/redux-logo.png",
         text: "",
       },
+      {
+        src: "img/sass.png",
+        text: "",
+      },
     ],
   },
   {

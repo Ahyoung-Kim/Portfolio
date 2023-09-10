@@ -1,11 +1,12 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import SkillImage from "../../../atomic/section/skills/SkillImage";
+import colors from "../../../../common/colors";
 
 const EachSkill = ({ src, text, index }) => {
   return (
     <Container>
-      <Wrapper style={{ animationDelay: `${index * 10}ms` }}>
+      <Wrapper style={{ animationDelay: `${index * 15}ms` }}>
         <SkillImage src={src} />
 
         {text && (

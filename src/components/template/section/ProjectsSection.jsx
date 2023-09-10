@@ -5,14 +5,17 @@ import colors from "../../../common/colors";
 
 import SectionList from "../../../constants/SectionList";
 import SectionLayout from "../../layout/SectionLayout";
+import ProjectCarousel from "../../organism/section/projects/ProjectCarousel";
 
 const ProjectsSection = () => {
   return (
     <SectionLayout
       section={SectionList.PROJECTS}
-      // bgStyle={{ backgroundColor: colors.COLOR_LAVENDAR_BACKGROUND }}
       bgStyle={{ backgroundColor: "black" }}
-    ></SectionLayout>
+      justifyContent="flex-start"
+    >
+      <ProjectCarousel />
+    </SectionLayout>
   );
 };
 
