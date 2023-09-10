@@ -26,12 +26,14 @@ body {
 
   height: 100vh;
    height: var(--vh);
+   color: #333;
 }
 
 
 * {
   box-sizing: border-box;
   vertical-align: middle;
+  word-break: break-all;
 }
 
 .bold-text {
@@ -40,6 +42,11 @@ body {
 
 .header-text {
   font-family: "Intel";
+}
+
+span.linear {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 //   desktop 규격

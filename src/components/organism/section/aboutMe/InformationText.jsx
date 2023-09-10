@@ -5,14 +5,15 @@ import colors from "../../../../common/colors";
 
 import LeftBarContainer from "../../../atomic/common/LeftBarContainer";
 import ProfileLinks from "../../../molecule/section/aboutMe/ProfileLinks";
+import LinearText from "../../../atomic/common/LinearText";
 
 const InformationText = () => {
   return (
     <Container>
       <BigText>
-        주니어 <HighlightText>Frontend</HighlightText> 개발자
+        주니어 <LinearText>Frontend</LinearText>개발자
         <br />
-        <HighlightText>김아영</HighlightText> 입니다.
+        <LinearText>김아영</LinearText> 입니다.
       </BigText>
 
       <ProfileLinks />
@@ -41,13 +42,6 @@ const BigText = styled.p`
   line-height: 3rem;
   // margin-bottom: 2rem;
   color: rgba(255, 255, 255, 0.6);
-`;
-
-const HighlightText = styled.span`
-  // color: white;
-  background: ${colors.COLOR_LINEAR_TEXT};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 `;
 
 const SmallText = styled.p`

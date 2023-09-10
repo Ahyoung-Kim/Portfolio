@@ -36,6 +36,7 @@ export default {
   COLOR_TRANSPARENT_BACKGROUND: "rgba(176, 176, 176, 0.5)",
   COLOR_PINK: "#DF83CB",
   COLOR_LINK: "#6459A8",
+  COLOR_PURPLE: "#b200cf",
 
   COLOR_LINEAR_TEXT: "linear-gradient(to right, #f048c1 25.5%, #b200cf 84.5%)",
 };

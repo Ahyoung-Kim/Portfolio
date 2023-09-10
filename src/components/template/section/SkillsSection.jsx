@@ -2,9 +2,11 @@ import React from "react";
 
 import styled from "styled-components";
 import colors from "../../../common/colors";
+import { PUBLIC_URL } from "../../../common/config";
 
 import SectionList from "../../../constants/SectionList";
 import SectionLayout from "../../layout/SectionLayout";
+import SkillList from "../../organism/section/skills/SkillList";
 
 const SkillsSection = () => {
   return (
@@ -12,10 +14,14 @@ const SkillsSection = () => {
       section={SectionList.SKILLS}
       bgStyle={{
         backgroundColor: "white",
-        // backgroundColor: colors.COLOR_MINT_BACKGROUND,
-        // background: `linear-gradient(45deg, #f048c1 25.5%, ${colors.COLOR_GRAY_BACKGROUND} 84.5%)`,
+        backgroundImage: `url(${PUBLIC_URL}/img/light-background.jpg)`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+        backgroundSize: "cover",
       }}
-    ></SectionLayout>
+    >
+      <SkillList />
+    </SectionLayout>
   );
 };
 
