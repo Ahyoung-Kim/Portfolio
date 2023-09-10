@@ -4,6 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../../../../common/colors";
 import { useMediaQueries } from "../../../layout/MediaQuery";
+import TextList from "../../common/TextList";
 
 const ArchiveItem = ({ data, index }) => {
   const { isMobile } = useMediaQueries();
@@ -35,13 +36,7 @@ const ArchiveItem = ({ data, index }) => {
           </Link>
         </LinkDiv>
 
-        {text && (
-          <TextUl>
-            {text.map((_text, idx) => (
-              <TextLi key={`${_text}_${idx}`}>{_text}</TextLi>
-            ))}
-          </TextUl>
-        )}
+        <TextList text={text} />
       </Wrapper>
     </Container>
   );
@@ -81,16 +76,3 @@ const Link = styled.a`
   color: inherit;
   margin-left: 0.5rem;
 `;
-
-const TextUl = styled.ul`
-  // background-color: aqua;
-  display: inline-block;
-  list-style-type: disc;
-  padding-inline-start: 2rem;
-  height: max-content;
-
-  font-size: 1rem;
-  line-height: 1.5rem;
-`;
-
-const TextLi = styled.li``;

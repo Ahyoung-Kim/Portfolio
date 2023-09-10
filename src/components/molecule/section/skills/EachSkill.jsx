@@ -2,6 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import SkillImage from "../../../atomic/section/skills/SkillImage";
 import colors from "../../../../common/colors";
+import TextList from "../../common/TextList";
 
 const EachSkill = ({ src, text, index }) => {
   return (
@@ -9,13 +10,7 @@ const EachSkill = ({ src, text, index }) => {
       <Wrapper style={{ animationDelay: `${index * 15}ms` }}>
         <SkillImage src={src} />
 
-        {text && (
-          <TextUl>
-            {text.map((_text, idx) => (
-              <TextLi key={`${_text}_${idx}`}>{_text}</TextLi>
-            ))}
-          </TextUl>
-        )}
+        <TextList text={text} />
       </Wrapper>
     </Container>
   );
@@ -47,16 +42,3 @@ const Wrapper = styled.div`
   animation: ${fadeIn} 1s ease backwards;
   // background-color: orange;
 `;
-
-const TextUl = styled.ul`
-  // background-color: aqua;
-  display: inline-block;
-  list-style-type: disc;
-  padding-inline-start: 2rem;
-  height: max-content;
-
-  font-size: 1rem;
-  line-height: 1.5rem;
-`;
-
-const TextLi = styled.li``;
