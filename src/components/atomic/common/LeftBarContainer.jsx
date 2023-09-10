@@ -7,9 +7,12 @@ const LeftBarContainer = ({
   margin = 0,
   lineHeight = "1rem",
   color = "inherit",
+  barColor = colors.COLOR_PINK,
 }) => {
   return (
-    <Container style={{ margin, lineHeight, color }}>{children}</Container>
+    <Container style={{ margin, lineHeight, color, borderLeftColor: barColor }}>
+      {children}
+    </Container>
   );
 };
 

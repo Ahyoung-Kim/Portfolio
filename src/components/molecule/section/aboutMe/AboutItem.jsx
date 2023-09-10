@@ -23,5 +23,5 @@ const Container = styled.div`
   //   background-color: orange;
   gap: 1rem;
   padding: 0.5rem 0;
-  font-size: 0.8rem;
+  font-size: 1rem;
 `;

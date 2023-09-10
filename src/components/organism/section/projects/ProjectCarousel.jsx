@@ -55,7 +55,9 @@ const ProjectCarousel = () => {
               }}
             >
               {active && (
-                <ProjectName className="bold-text">hello world</ProjectName>
+                <ProjectName className="bold-text linear">
+                  프로젝트 이름임{idx + 1}
+                </ProjectName>
               )}
 
               <CardWrapper>
@@ -97,6 +99,7 @@ const Button = styled.div`
   color: white;
   font-size: 1.5rem;
   height: 4rem;
+  //   background-color: orange;
 
   position: absolute;
   top: 0;
@@ -132,17 +135,21 @@ const CardContainer = styled.div`
   filter: blur(calc(var(--abs-offset) * 0.5rem));
 `;
 
-const ProjectName = styled.div`
-  color: white;
-  //   background-color: aqua;
+const ProjectName = styled.span`
+  display: inline-block;
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  width: calc(100% - 6rem);
   text-align: center;
   line-height: 4rem;
   font-size: 1.8rem;
-  transform: translateY(-100%);
+  transform: translateY(-100%) translateX(-50%);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: ${colors.COLOR_LINEAR_TEXT};
 `;
 
 const CardWrapper = styled.div`

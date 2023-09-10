@@ -11,7 +11,7 @@ const ActivityItem = () => {
   const { isMobile } = useMediaQueries();
   return (
     <Container style={{ width: isMobile ? "100%" : "60%" }}>
-      <WhiteBox>
+      <WhiteBox padding={"3rem"}>
         <LogoDiv>
           <Logo src={`${PUBLIC_URL}/img/likelion-icon.png`} />
         </LogoDiv>

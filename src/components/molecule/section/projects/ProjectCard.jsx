@@ -7,11 +7,19 @@ import ProjectSkills from "../../contents/ProjectSkills";
 import GithubLink from "../../../atomic/contents/GithubLink";
 import MonitorImage from "../../../atomic/contents/MonitorImage";
 import { PUBLIC_URL } from "../../../../common/config";
+import { useMediaQueries } from "../../../layout/MediaQuery";
 
 const ProjectCard = () => {
+  const { isPc } = useMediaQueries();
+
   return (
     <Container>
-      <Image src={`${PUBLIC_URL}/img/monitor-pc.png`} />
+      <ImageDiv>
+        <Image
+          style={{ width: isPc ? "60%" : "100%" }}
+          src={`${PUBLIC_URL}/img/monitor-pc.png`}
+        />
+      </ImageDiv>
 
       <ProjectDescription />
 
@@ -31,8 +39,13 @@ const Container = styled.div`
   padding: 2rem;
 `;
 
+const ImageDiv = styled.div`
+  width: 100%;
+  text-align: center;
+`;
+
 const Image = styled.img`
-  display: block;
   width: 100%;
   margin-bottom: 1rem;
+  object-fit: contain;
 `;
