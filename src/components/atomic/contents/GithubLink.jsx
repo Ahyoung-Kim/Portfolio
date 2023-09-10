@@ -6,7 +6,7 @@ import colors from "../../../common/colors";
 const GithubLink = ({ link = "https://github.com/Ahyoung-Kim" }) => {
   return (
     <Container>
-      <GithubLogo src={`${PUBLIC_URL}/img/github.png`} />
+      <GithubLogo src={`${PUBLIC_URL}/img/github-icon.png`} />
 
       <Link href={link} target="_blank">
         Source Code
@@ -25,13 +25,14 @@ const Container = styled.div`
 `;
 
 const GithubLogo = styled.img`
-  width: 2rem;
+  width: 1.5rem;
+  object-fit: contain;
 `;
 
 const Link = styled.a`
   text-decoration: none;
   font-weight: bold;
-  margin-left: 3px;
+  margin-left: 0.5rem;
   cursor: pointer;
   padding: 3px 9px;
   border-radius: 5px;

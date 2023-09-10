@@ -29,7 +29,7 @@ const ProjectCarousel = () => {
 
   return (
     <Container>
-      <Carousel style={{ width: isMobile ? "100%" : "70%" }}>
+      <Carousel style={{ width: isMobile ? "100%" : "60%" }}>
         {current > 0 && (
           <Button className="left" onClick={onClickLeft}>
             <FontAwesomeIcon icon={faChevronCircleLeft} />
@@ -59,10 +59,7 @@ const ProjectCarousel = () => {
               )}
 
               <CardWrapper>
-                <ProjectCard
-                  absOffset={Math.abs(diff) / 3}
-                  height={`calc(var(--vh, 1vh) * ${(idx + 1) * 10})`}
-                />
+                <ProjectCard />
               </CardWrapper>
             </CardContainer>
           );
