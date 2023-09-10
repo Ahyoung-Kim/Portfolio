@@ -29,7 +29,7 @@ const SectionLayout = ({
       >
         <Contents
           className={isActive ? "active" : ""}
-          style={{ padding: isPc ? "4rem 10%" : "4rem 5%" }}
+          style={{ padding: isPc ? "4rem 15%" : "4rem 5%" }}
         >
           {showName && (
             <SectionName

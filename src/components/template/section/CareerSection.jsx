@@ -5,13 +5,17 @@ import colors from "../../../common/colors";
 
 import SectionList from "../../../constants/SectionList";
 import SectionLayout from "../../layout/SectionLayout";
+import CareerItem from "../../molecule/section/career/CareerItem";
 
 const CareerSection = () => {
   return (
     <SectionLayout
       section={SectionList.CAREER}
       bgStyle={{ backgroundColor: colors.COLOR_GRAY_BACKGROUND }}
-    ></SectionLayout>
+      justifyContent="flex-start"
+    >
+      <CareerItem />
+    </SectionLayout>
   );
 };
 
