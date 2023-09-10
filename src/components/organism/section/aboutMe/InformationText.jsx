@@ -10,9 +10,9 @@ const InformationText = () => {
   return (
     <Container>
       <BigText>
-        주니어 <WhiteText>Frontend</WhiteText> 개발자
+        주니어 <HighlightText>Frontend</HighlightText> 개발자
         <br />
-        <WhiteText>김아영</WhiteText> 입니다.
+        <HighlightText>김아영</HighlightText> 입니다.
       </BigText>
 
       <ProfileLinks />
@@ -43,8 +43,11 @@ const BigText = styled.p`
   color: rgba(255, 255, 255, 0.6);
 `;
 
-const WhiteText = styled.span`
-  color: white;
+const HighlightText = styled.span`
+  // color: white;
+  background: ${colors.COLOR_LINEAR_TEXT};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 const SmallText = styled.p`

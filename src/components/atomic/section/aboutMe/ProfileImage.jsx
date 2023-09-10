@@ -5,11 +5,17 @@ import { useMediaQueries } from "../../../layout/MediaQuery";
 import { PUBLIC_URL } from "../../../../common/config";
 
 const ProfileImage = () => {
-  const { isMobile } = useMediaQueries();
+  const { isMobile, isTablet } = useMediaQueries();
 
   return (
     <Image
-      style={isMobile ? { width: "60%" } : { width: "30%" }}
+      style={
+        isMobile
+          ? { width: "60%" }
+          : isTablet
+          ? { width: "40%" }
+          : { width: "30%" }
+      }
       src={`${PUBLIC_URL}/img/profile-img.jpg`}
     />
   );

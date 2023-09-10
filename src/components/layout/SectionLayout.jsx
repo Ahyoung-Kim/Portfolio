@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import colors from "../../common/colors";
 import useIsSectionActive from "../hooks/useIsSectionActive";
+import { useMediaQueries } from "./MediaQuery";
 
 const SectionLayout = ({
   bgStyle = {},
@@ -12,6 +13,7 @@ const SectionLayout = ({
   nameColor = colors.COLOR_PINK,
 }) => {
   const ref = useRef(null);
+  const { isPc } = useMediaQueries();
   const isActive = useIsSectionActive(section.index);
 
   return (
@@ -24,9 +26,15 @@ const SectionLayout = ({
         }}
         ref={ref}
       >
-        <Contents className={isActive ? "active" : ""}>
+        <Contents
+          className={isActive ? "active" : ""}
+          style={{ padding: isPc ? "4rem 10%" : "4rem 5%" }}
+        >
           {showName && (
-            <SectionName className="bold-text" style={{ color: nameColor }}>
+            <SectionName
+              className="bold-text"
+              style={{ color: nameColor, fontSize: isPc ? "2rem" : "1.5rem" }}
+            >
               {section.name}
             </SectionName>
           )}
@@ -73,15 +81,14 @@ const move = keyframes`
 
 const Contents = styled.div`
   width: 100%;
-  padding: 4rem 5%;
   // min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
   // background-color: white;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
 
   &.active {
     animation: ${move} 2s ease forwards;
@@ -90,9 +97,7 @@ const Contents = styled.div`
 
 const SectionName = styled.p`
   width: 100%;
-  font-size: 1.5rem;
   height: 4rem;
-  // text-align: end;
   display: flex;
   align-items: center;
   justify-content: flex-end;

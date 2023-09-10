@@ -26,6 +26,7 @@ export default ProfileLink;
 const Container = styled.div`
   display: flex;
   align-items: center;
+  color: inherit;
   //   background-color: orange;
 `;
 
