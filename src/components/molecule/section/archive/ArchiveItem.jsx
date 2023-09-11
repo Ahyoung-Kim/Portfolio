@@ -47,18 +47,23 @@ export default ArchiveItem;
 const Container = styled.div`
   width: 100%;
   display: flex;
+  align-items: flex-start;
   gap: 1rem;
   margin-bottom: 5rem;
+  //   background-color: orange;
+  height: max-content;
 `;
 
 const Image = styled.img`
   display: inline-block;
   width: 10%;
-  height: max-content;
   object-fit: contain;
 `;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  //   background-color: white;
+  height: max-content;
+`;
 
 const Label = styled.p`
   font-size: 1.5rem;

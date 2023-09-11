@@ -20,7 +20,7 @@ const CareerItem = () => {
       <GrayLine />
 
       <CareerIconText text={"2022.12 ~ 2023.02"} icon={faCalendarDays} />
-      <CareerIconText text={"안턴"} icon={faUserTie} />
+      <CareerIconText text={"인턴"} icon={faUserTie} />
       <CareerIconText text={"모바일 앱 풀스택 개발 업무"} icon={faGear} />
 
       <Description>
