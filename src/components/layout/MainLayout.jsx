@@ -96,8 +96,10 @@ const MainLayout = ({ children }) => {
   const onTouchEnd = (e) => {
     const currentY = e.changedTouches.item(0)?.clientY || 0;
     const deltaY = oldTouchY.current - currentY;
+    const pageHeight = window.innerHeight;
+    // console.log(deltaY, pageHeight / 10);
 
-    if (deltaY !== 0) {
+    if (Math.abs(deltaY) > pageHeight / 10) {
       onScroll(deltaY);
     }
   };
