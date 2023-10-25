@@ -14,7 +14,7 @@ const SectionList = {
   PROJECTS: section("projects", "PROJECTS", 7, -4),
   ARCHIVE: section("archive", "ARCHIVE", 6, -3),
   ACTIVITY: section("activity", "ACTIVITY", 5, -2),
-  CAREER: section("career", "CAREER", 4, -1),
+  // CAREER: section("career", "CAREER", 4, -1),
 };
 
 export const SECTION_LIMIT = Object.keys(SectionList).length;
