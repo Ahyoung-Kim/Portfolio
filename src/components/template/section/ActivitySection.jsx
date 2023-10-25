@@ -22,7 +22,7 @@ const ActivitySection = () => {
         ), 
         url(${PUBLIC_URL}/img/hackathon.jpg)`,
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "top left",
+        backgroundPosition: "bottom left",
         backgroundSize: "cover",
       }}
     >

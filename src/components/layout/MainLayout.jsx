@@ -80,7 +80,7 @@ const MainLayout = ({ children }) => {
 
       timeoutRef.current = window.setTimeout(() => {
         timeoutRef.current = null;
-      }, 1500);
+      }, 2000);
     }
   };
 
