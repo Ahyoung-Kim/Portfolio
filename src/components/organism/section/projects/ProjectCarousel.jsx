@@ -10,9 +10,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import ProjectCard from "../../../molecule/section/projects/ProjectCard";
 import { useMediaQueries } from "../../../layout/MediaQuery";
+import Data from "../../../../constants/Data";
 
 const CARD_SIZE = "50%";
-const CARDS = 10;
+const CARDS = Data.length;
 const MAX_VISIBILITY = 3;
 
 const ProjectCarousel = () => {
@@ -36,36 +37,38 @@ const ProjectCarousel = () => {
           </Button>
         )}
 
-        {[...new Array(CARDS)].map((_, idx) => {
-          const diff = current - idx;
-          const active = idx === current;
+        {Data &&
+          Object.keys(Data).map((key, idx) => {
+            const diff = current - idx;
+            const active = idx === current;
+            const data = Data[key];
 
-          return (
-            <CardContainer
-              key={idx}
-              style={{
-                position: active ? "relative" : "absolute",
-                "--active": active ? 1 : 0,
-                "--offset": diff / 3,
-                "--direction": Math.sign(diff),
-                "--abs-offset": Math.abs(diff) / 3,
-                pointerEvents: active ? "auto" : "none",
-                opacity: Math.abs(diff) >= MAX_VISIBILITY ? "0" : "1",
-                display: Math.abs(diff) >= MAX_VISIBILITY ? "none" : "block",
-              }}
-            >
-              {active && (
-                <ProjectName className="bold-text linear">
-                  프로젝트 이름임{idx + 1}
-                </ProjectName>
-              )}
+            return (
+              <CardContainer
+                key={data.id}
+                style={{
+                  position: active ? "relative" : "absolute",
+                  "--active": active ? 1 : 0,
+                  "--offset": diff / 3,
+                  "--direction": Math.sign(diff),
+                  "--abs-offset": Math.abs(diff) / 3,
+                  pointerEvents: active ? "auto" : "none",
+                  opacity: Math.abs(diff) >= MAX_VISIBILITY ? "0" : "1",
+                  display: Math.abs(diff) >= MAX_VISIBILITY ? "none" : "block",
+                }}
+              >
+                {active && (
+                  <ProjectName className="bold-text linear">
+                    {data.name}
+                  </ProjectName>
+                )}
 
-              <CardWrapper>
-                <ProjectCard />
-              </CardWrapper>
-            </CardContainer>
-          );
-        })}
+                <CardWrapper>
+                  <ProjectCard data={data} />
+                </CardWrapper>
+              </CardContainer>
+            );
+          })}
 
         {current < CARDS - 1 && (
           <Button className="right" onClick={onClickRight}>

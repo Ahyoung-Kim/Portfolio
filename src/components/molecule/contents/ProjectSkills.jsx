@@ -3,18 +3,40 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../../../common/colors";
 
-const ProjectSkills = ({ skills }) => {
+const ProjectSkills = ({ stacks, id }) => {
+  const { frontend, backend, database } = stacks;
+
   return (
     <Container>
-      <SkillContainer style={{ backgroundColor: colors.COLOR_FRONTEND }}>
-        React
-      </SkillContainer>
-      <SkillContainer style={{ backgroundColor: colors.COLOR_BACKEND }}>
-        Node.js
-      </SkillContainer>
-      <SkillContainer style={{ backgroundColor: colors.COLOR_DATABASE }}>
-        MongoDB
-      </SkillContainer>
+      {frontend &&
+        frontend.map((stack, idx) => (
+          <SkillContainer
+            key={`${id}_${stack}`}
+            style={{ backgroundColor: colors.COLOR_FRONTEND }}
+          >
+            {stack}
+          </SkillContainer>
+        ))}
+
+      {backend &&
+        backend.map((stack, idx) => (
+          <SkillContainer
+            key={`${id}_${stack}`}
+            style={{ backgroundColor: colors.COLOR_BACKEND }}
+          >
+            {stack}
+          </SkillContainer>
+        ))}
+
+      {database &&
+        database.map((stack, idx) => (
+          <SkillContainer
+            key={`${id}_${stack}`}
+            style={{ backgroundColor: colors.COLOR_DATABASE }}
+          >
+            {stack}
+          </SkillContainer>
+        ))}
     </Container>
   );
 };

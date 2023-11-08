@@ -12,13 +12,18 @@ import {
   faCommentDots,
 } from "@fortawesome/free-solid-svg-icons";
 
-const ProjectDescription = ({
-  type,
-  period,
-  description,
-  functions,
-  comment,
-}) => {
+const ProjectDescription = ({ data }) => {
+  const {
+    id,
+    name,
+    type,
+    startDate,
+    endDate,
+    introduction,
+    functions,
+    comment,
+  } = data;
+
   return (
     <>
       <TextWrapper>
@@ -31,7 +36,7 @@ const ProjectDescription = ({
             />
           </Icon>
 
-          <Text>1인 개인 프로젝트</Text>
+          <Text>{type}</Text>
         </TextItem>
 
         {/* period */}
@@ -42,10 +47,12 @@ const ProjectDescription = ({
               style={{ color: colors.COLOR_BLUE_ICON }}
             />
           </Icon>
-          <Text>2023.01 ~ 2023.02</Text>
+          <Text>
+            {startDate} ~ {endDate ? endDate : ""}
+          </Text>
         </TextItem>
 
-        {/* description */}
+        {/* introduction */}
         <TextItem>
           <Icon>
             <FontAwesomeIcon
@@ -53,44 +60,42 @@ const ProjectDescription = ({
               style={{ color: colors.COLOR_RED_ICON }}
             />
           </Icon>
-          <Text>
-            프로젝트 설명 부분프로젝트 설명 부분프로젝트 설명 부분프로젝트 설명
-            부분프로젝트 설명 부분프로젝트 설명 부분프로젝트 설명 부분
-          </Text>
+          <Text>{introduction}</Text>
         </TextItem>
 
         {/* functions */}
-        <TextItemWrapper>
+        {functions && functions.length > 0 && (
+          <TextItemWrapper>
+            <TextItem>
+              <Icon>
+                <FontAwesomeIcon
+                  icon={faStar}
+                  style={{ color: colors.COLOR_YELLOW_ICON }}
+                />
+              </Icon>
+              <Text>주요 기능</Text>
+            </TextItem>
+
+            <TextUl>
+              {functions.map((text, idx) => (
+                <TextLi key={`${id}_${idx}`}>{text}</TextLi>
+              ))}
+            </TextUl>
+          </TextItemWrapper>
+        )}
+
+        {/* comment */}
+        {comment && (
           <TextItem>
             <Icon>
               <FontAwesomeIcon
-                icon={faStar}
-                style={{ color: colors.COLOR_YELLOW_ICON }}
+                icon={faCommentDots}
+                style={{ color: colors.COLOR_GREEN_ICON }}
               />
             </Icon>
-            <Text>주요 기능</Text>
+            <Text>{comment}</Text>
           </TextItem>
-
-          <TextUl>
-            <TextLi>
-              주요 기능 설명주요 기능 설명주요 기능 설명주요 기능 설명주요 기능
-              설명
-            </TextLi>
-            <TextLi>주요 기능 설명</TextLi>
-            <TextLi>주요 기능 설명</TextLi>
-          </TextUl>
-        </TextItemWrapper>
-
-        {/* comment */}
-        <TextItem>
-          <Icon>
-            <FontAwesomeIcon
-              icon={faCommentDots}
-              style={{ color: colors.COLOR_GREEN_ICON }}
-            />
-          </Icon>
-          <Text>프로젝트 특이 사항 코멘트</Text>
-        </TextItem>
+        )}
       </TextWrapper>
     </>
   );

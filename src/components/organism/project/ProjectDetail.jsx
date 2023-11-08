@@ -27,7 +27,7 @@ const ProjectDetail = () => {
 
       <GrayLine />
 
-      <ProjectDescription />
+      {/* <ProjectDescription /> */}
 
       <GrayLine />
 

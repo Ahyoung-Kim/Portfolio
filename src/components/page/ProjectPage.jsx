@@ -5,10 +5,13 @@ import styled from "styled-components";
 import PorjectListNav from "../organism/project/PorjectListNav";
 import ProjectDetail from "../organism/project/ProjectDetail";
 import { useMediaQueries } from "../layout/MediaQuery";
+import Footer from "../organism/footer/Footer";
+import { footerHeight } from "../../common/size";
+import Data from "../../constants/Data";
 
 const ProjectPage = () => {
   const params = useParams();
-  const id = params?.id;
+  const id = params.id;
 
   const { isMobile, isPc, isTablet } = useMediaQueries();
 
@@ -19,16 +22,18 @@ const ProjectPage = () => {
   return (
     <Page>
       <ProjectDetailContainer
-      // style={isPc ? { width: "80%" } : { width: "100%" }}
+        style={isPc ? { width: "80%" } : { width: "100%" }}
       >
         <ProjectDetail />
       </ProjectDetailContainer>
 
-      {/* {isPc && (
+      {isPc && (
         <ProjectNavContainer>
           <PorjectListNav />
         </ProjectNavContainer>
-      )} */}
+      )}
+
+      <Footer />
     </Page>
   );
 };
@@ -38,6 +43,7 @@ export default ProjectPage;
 const Page = styled.div`
   width: 100%;
   display: flex;
+  padding-bottom: ${footerHeight};
 `;
 
 const ProjectDetailContainer = styled.div`

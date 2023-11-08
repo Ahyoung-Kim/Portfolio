@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { PUBLIC_URL } from "../../../common/config";
 import colors from "../../../common/colors";
 
-const GithubLink = ({ link = "https://github.com/Ahyoung-Kim" }) => {
+const GithubLink = ({ link }) => {
   return (
     <Container>
       <GithubLogo src={`${PUBLIC_URL}/img/github-icon.png`} />
