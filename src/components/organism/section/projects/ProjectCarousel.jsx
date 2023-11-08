@@ -13,7 +13,7 @@ import { useMediaQueries } from "../../../layout/MediaQuery";
 import Data from "../../../../constants/Data";
 
 const CARD_SIZE = "50%";
-const CARDS = Data.length;
+const CARDS = Object.keys(Data).length;
 const MAX_VISIBILITY = 3;
 
 const ProjectCarousel = () => {
@@ -30,7 +30,7 @@ const ProjectCarousel = () => {
 
   return (
     <Container>
-      <Carousel style={{ width: isMobile ? "100%" : "60%" }}>
+      <Carousel style={{ width: isMobile ? "100%" : "70%" }}>
         {current > 0 && (
           <Button className="left" onClick={onClickLeft}>
             <FontAwesomeIcon icon={faChevronCircleLeft} />

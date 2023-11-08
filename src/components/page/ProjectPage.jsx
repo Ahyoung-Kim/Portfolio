@@ -12,6 +12,7 @@ import Data from "../../constants/Data";
 const ProjectPage = () => {
   const params = useParams();
   const id = params.id;
+  const data = Data[id];
 
   const { isMobile, isPc, isTablet } = useMediaQueries();
 

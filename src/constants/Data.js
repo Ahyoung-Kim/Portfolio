@@ -16,6 +16,7 @@ const makeData = ({
   link, // 배포 링크
   // 시연 영상 링크
   video,
+  mobile = false,
 }) => {
   return {
     id,
@@ -35,6 +36,7 @@ const makeData = ({
     link, // 배포 링크
     // 시연 영상 링크
     video,
+    mobile,
   };
 };
 
@@ -83,6 +85,11 @@ export default {
     },
     images: [
       // 이미지
+      "devs/메인피드-short.png",
+      "devs/프로필-short.png",
+      "devs/검색결과.png",
+      "devs/메인피드.png",
+      "devs/프로필.png",
     ],
     comment: "멋쟁이사자처럼 서강대 10기 최종 프로젝트",
     introduction: "개발자들만의 SNS 를 위해 만들어진 웹 사이트입니다.",
@@ -109,7 +116,19 @@ export default {
       backend: ["SpringBoot"],
       database: ["MySQL"],
     },
-    images: [],
+    images: [
+      "relief/홈.png",
+      "relief/홈사이드.png",
+      "relief/보호자.png",
+      "relief/보호자요청수락.png",
+      "relief/피보호자.png",
+      "relief/친구등록.png",
+      "relief/친구관리.png",
+      "relief/친구디테일.png",
+      "relief/메시지.png",
+      "relief/메시지관리.png",
+      "relief/메시지내역.png",
+    ],
     comment: "서강대학교 학부 수업 '캡스톤디자인I' 팀 프로젝트",
     introduction:
       "안전을 위해 사용자의 현재 위치를 보호자에게 알리는 위치 기반 치안 모바일 어플리케이션 입니다. ",
@@ -122,6 +141,7 @@ export default {
       "주변 CCTV, 치안센터 및 경찰서의 위치 정보를 지도상에서 확인합니다.",
       "피보호자는 자신의 위치를 보호자에게 공유할 수 있으며, 필요시 긴급 도움 메세지를 전송합니다.",
     ],
+    mobile: true,
   }),
   SogangType: makeData({
     id: "SogangType",
@@ -134,7 +154,14 @@ export default {
       frontend: ["Next.js"],
       backend: ["Django"],
     },
-    images: [],
+    images: [
+      "sogang-type/intro.jpeg",
+      "sogang-type/choice.jpeg",
+      "sogang-type/start.jpeg",
+      "sogang-type/end.jpeg",
+      "sogang-type/result.jpeg",
+      "sogang-type/ranking.jpeg",
+    ],
     comment: "멋쟁이사자처럼 홍보용 미니 프로젝트",
     introduction:
       "MBTI 테스트처럼 간단한 테스트를 통해 서강대 학생들의 학교 생활 유형을 알려주는 웹 사이트입니다. ",
@@ -148,6 +175,7 @@ export default {
       "본인의 유형에 대한 통계와 전체 통계를 확인할 수 있습니다. ",
     ],
     link: "https://sogangtype.com/",
+    mobile: true,
   }),
   Fandolee: makeData({
     id: "Fandolee",
@@ -161,7 +189,13 @@ export default {
       backend: ["firebase", "python"],
       database: ["firestore"],
     },
-    images: [],
+    images: [
+      "Fandolee/홈.png",
+      "Fandolee/경매.png",
+      "Fandolee/경매생성.png",
+      "Fandolee/교환.png",
+      "Fandolee/마이페이지.png",
+    ],
     comment:
       "서강대학교 학부 수업 '캡스톤디자인II' 졸업 프로젝트, KCC 2023 학부생/주니어 논문경진대회 참여작",
     introduction:
@@ -187,7 +221,19 @@ export default {
       backend: ["Spring Boot"],
       database: ["MySQL"],
     },
-    images: [],
+    images: [
+      "ssk/홈.PNG",
+      "ssk/수업생성.PNG",
+      "ssk/수업정보.PNG",
+      "ssk/학생초대코드.PNG",
+      "ssk/숙제노트작성.PNG",
+      "ssk/숙제인증.PNG",
+      "ssk/복습노트작성.PNG",
+      "ssk/복습태그관리.PNG",
+      "ssk/수업바텀.PNG",
+      "ssk/수업일지수정바텀.PNG",
+      "ssk/일지생성바텀.PNG",
+    ],
     comment: "",
     introduction:
       "'수업 숙제 관리'의 줄임말로, 학생과 선생님이 함께 수업 일정을 공유하며 숙제 및 복습 현황을 관리할 수 있도록 돕는 모바일 어플리케이션입니다.",
@@ -198,6 +244,7 @@ export default {
       "선생님과 학생은 캘린더를 통해 수업 일정을 공유합니다.",
       "수업 및 복습 내용을 등록 및 인증하여 수업을 관리합니다.",
     ],
+    mobile: true,
   }),
   portfolio: makeData({
     id: "portfolio",
