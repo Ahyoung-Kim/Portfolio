@@ -25,7 +25,7 @@ const ProjectPage = () => {
       <ProjectDetailContainer
         style={isPc ? { width: "80%" } : { width: "100%" }}
       >
-        <ProjectDetail />
+        <ProjectDetail data={data} />
       </ProjectDetailContainer>
 
       {isPc && (

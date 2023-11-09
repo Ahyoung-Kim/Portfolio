@@ -5,29 +5,29 @@ import colors from "../../../common/colors";
 
 import GrayLine from "../../atomic/contents/GrayLine";
 import { useMediaQueries } from "../../layout/MediaQuery";
-import MonitorImage from "../../atomic/contents/MonitorImage";
 import ProjectDescription from "../../molecule/contents/ProjectDescription";
 import DetailContainer from "./DetailContainer";
 import ProjectDetailDescription from "./ProjectDetailDescription";
 import ProjectLink from "./ProjectLink";
 import ProjectDetailSkills from "./ProjectDetailSkills";
+import ImageCarousel from "../../molecule/contents/ImageCarousel";
 
-const ProjectDetail = () => {
+const ProjectDetail = ({ data }) => {
   const { isPc, isTablet } = useMediaQueries();
 
   return (
     <Container>
-      <Title className="bold-text">프로젝트 이름</Title>
+      <Title className="bold-text">{data.name}</Title>
 
       <GrayLine />
 
       <ImageBox style={isPc || isTablet ? { width: "60%" } : { width: "100%" }}>
-        <MonitorImage />
+        <ImageCarousel images={data.images} mobile={data.mobile} />
       </ImageBox>
 
       <GrayLine />
 
-      {/* <ProjectDescription /> */}
+      <ProjectDescription data={data} />
 
       <GrayLine />
 

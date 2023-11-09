@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { mobileIconHeight, monitorIconHeight } from "../../../common/size";
 import colors from "../../../common/colors";
-import { PUBLIC_URL } from "../../../common/config";
+import { PROJECTS_URL, PUBLIC_URL } from "../../../common/config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
@@ -14,16 +14,18 @@ const MonitorContainer = ({ isMobile, children, monitorHeight }) => {
   return (
     <>
       <Monitor
-        style={
-          isMobile
-            ? { height: monitorHeight, borderRadius: "0.8rem 0.8rem 0 0" }
-            : { height: monitorHeight }
-        }
+        // style={
+        //   isMobile
+        //     ? { height: monitorHeight, borderRadius: "0.8rem 0.8rem 0 0" }
+        //     : { height: monitorHeight }
+        // }
+        // style={isMobile ? { borderRadius: "0.8rem 0.8rem 0 0" } : {}}
+        style={monitorHeight > 0 ? { height: monitorHeight } : {}}
       >
         {children}
       </Monitor>
 
-      {isMobile ? (
+      {/* {isMobile ? (
         <MobileBar style={{ height: monitorHeight * 0.05 }} />
       ) : (
         <>
@@ -31,7 +33,7 @@ const MonitorContainer = ({ isMobile, children, monitorHeight }) => {
 
           <HorizontalLine />
         </>
-      )}
+      )} */}
     </>
   );
 };
@@ -41,6 +43,7 @@ const MonitorImage = ({
   isMobile = false,
 }) => {
   const ref = useRef();
+  const firstRef = useRef();
   const [monitorHeight, setMonitorHeight] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -63,10 +66,21 @@ const MonitorImage = ({
 
   const handleResize = () => {
     const width = ref?.current?.offsetWidth;
+
     const _height = isMobile
       ? mobileIconHeight(width)
       : monitorIconHeight(width);
-    setMonitorHeight(_height);
+    // setMonitorHeight(_height);
+  };
+
+  const onLoad = (idx) => {
+    if (idx == 0) {
+      const w = firstRef?.current?.offsetWidth;
+      const h = firstRef?.current?.offsetHeight;
+      console.log(w, h);
+
+      setMonitorHeight(h);
+    }
   };
 
   useEffect(() => {
@@ -87,7 +101,7 @@ const MonitorImage = ({
   return (
     <Container
       ref={ref}
-      style={isMobile ? { width: "60%" } : { width: "100%" }}
+      style={isMobile ? { width: "50%" } : { width: "100%" }}
     >
       <MonitorContainer isMobile={isMobile} monitorHeight={monitorHeight}>
         <ArrowButton onClick={onClickPrev} style={{ left: "2%" }}>
@@ -103,8 +117,10 @@ const MonitorImage = ({
             images.map((src, idx) => (
               <Image
                 key={`image_${src}${idx}`}
-                src={`${PUBLIC_URL}/${src}`}
+                ref={idx === 0 ? firstRef : null}
+                src={`${PROJECTS_URL}/${src}`}
                 current={currentIndex}
+                onLoad={onLoad.bind(this, idx)}
               />
             ))}
         </ImageBox>
@@ -135,12 +151,12 @@ const Container = styled.div`
 
 const Monitor = styled.div`
   width: 100%;
-
   background-color: ${colors.COLOR_GRAY_BACKGROUND};
   border-radius: 0.8rem;
   border: 0.8rem solid black;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
+  overflow: scroll-y;
 `;
 
 const ArrowButton = styled.div`
@@ -168,8 +184,8 @@ const ImageBox = styled.div`
 const Image = styled.img`
   display: inline-block;
   width: 100%;
-  min-width: 100%;
-  height: 100%;
+  // min-width: 100%;
+  // height: 100%;
   object-fit: contain;
 
   transition: all 0.5s ease-in-out;
@@ -191,8 +207,8 @@ const IndicatorDiv = styled.div`
   padding: 3%;
 `;
 const Indicator = styled.div`
-  width: 0.7rem;
-  height: 0.7rem;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
   background-color: ${({ focused }) =>
     focused ? "black" : colors.COLOR_TRANSPARENT_BACKGROUND};

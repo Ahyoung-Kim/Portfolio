@@ -11,3 +11,11 @@ export const monitorIconHeight = (width) => {
 export const mobileIconHeight = (width) => {
   return (width * 722) / 425;
 };
+
+export const pcHeight = (width) => {
+  return (width * 982) / 1512;
+};
+
+export const mobileHeight = (width) => {
+  return (width * 852) / 393;
+};
