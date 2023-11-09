@@ -2,23 +2,19 @@ import React from "react";
 
 import DetailContainer from "./DetailContainer";
 import Highlight from "../../atomic/contents/Highlight";
+import styled from "styled-components";
 
-const dummy = [
-  "hello worldhello worldhello world\nhello world",
-  "/hello world",
-  "hello worldhello world\nhello world",
-];
-
-const ProjectDetailDescription = ({ headText }) => {
+const ProjectDetailDescription = ({ headText, text }) => {
   return (
     <DetailContainer text={headText}>
-      {dummy.map((str, idx) => (
-        <span key={`${str}_${idx}`}>
-          {str[0] == "/" ? <Highlight>{str.slice(1)}</Highlight> : str}
-        </span>
-      ))}
+      <Text>{text}</Text>
     </DetailContainer>
   );
 };
 
 export default ProjectDetailDescription;
+
+const Text = styled.p`
+  font-size: 1rem;
+  line-height: 2rem;
+`;

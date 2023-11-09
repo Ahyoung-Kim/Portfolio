@@ -43,28 +43,25 @@ const ProjectDetail = ({ data }) => {
 
       <GrayLine />
 
-      <ProjectDetailDescription headText={"프로젝트 설명"} />
-
-      <ProjectDetailDescription headText={"프로젝트 배경"} />
-
-      <ProjectDetailDescription headText={"Issues"} />
-
-      <ProjectDetailSkills />
-
-      <ProjectLink
-        headText="Github Link"
-        link={"https://github.com/Ahyoung-Kim"}
+      <ProjectDetailDescription
+        headText={"프로젝트 설명"}
+        text={data.description}
       />
 
-      <ProjectLink
-        headText="Deployment Link"
-        link={"https://github.com/Ahyoung-Kim"}
+      <ProjectDetailDescription
+        headText={"프로젝트 배경"}
+        text={data.background}
       />
 
-      <ProjectLink
-        headText="시연 영상"
-        link={"https://github.com/Ahyoung-Kim"}
-      />
+      {/* <ProjectDetailDescription headText={"Issues"} /> */}
+
+      <ProjectDetailSkills stacks={data.stacks} projectId={data.id} />
+
+      <ProjectLink headText="Github Link" link={data.github} />
+
+      <ProjectLink headText="Deployment Link" link={data.link} />
+
+      <ProjectLink headText="시연 영상" link={data.video} />
     </Container>
   );
 };

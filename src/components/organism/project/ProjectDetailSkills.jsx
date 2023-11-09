@@ -5,27 +5,44 @@ import colors from "../../../common/colors";
 
 import DetailContainer from "./DetailContainer";
 
-const ProjectDetailSkills = () => {
+const SkillList = ({ list, listName, listColor, projectId }) => {
+  if (!list || list.length == 0) return;
+
+  return (
+    <SkillItem>
+      <Label style={{ backgroundColor: listColor }}>{listName}</Label>
+      {list.map((stack, idx) => (
+        <Skills key={`${projectId}_${stack}`}>
+          {idx > 0 ? `, ${stack}` : stack}
+        </Skills>
+      ))}
+    </SkillItem>
+  );
+};
+
+const ProjectDetailSkills = ({ stacks, projectId }) => {
+  const { frontend, backend, database } = stacks;
+
   return (
     <DetailContainer text="Tech Stacks">
-      <SkillItem>
-        <Label style={{ backgroundColor: colors.COLOR_FRONTEND }}>
-          Frontend
-        </Label>
-        <Skills>React, Redux</Skills>
-      </SkillItem>
-
-      <SkillItem>
-        <Label style={{ backgroundColor: colors.COLOR_BACKEND }}>Backend</Label>
-        <Skills>Node.js, Express.js, GraphQL</Skills>
-      </SkillItem>
-
-      <SkillItem>
-        <Label style={{ backgroundColor: colors.COLOR_DATABASE }}>
-          Database
-        </Label>
-        <Skills>MongoDB</Skills>
-      </SkillItem>
+      <SkillList
+        list={frontend}
+        listName={"Frontend"}
+        listColor={colors.COLOR_FRONTEND}
+        projectId={projectId}
+      />
+      <SkillList
+        list={backend}
+        listName={"Backend"}
+        listColor={colors.COLOR_BACKEND}
+        projectId={projectId}
+      />
+      <SkillList
+        list={database}
+        listName={"Database"}
+        listColor={colors.COLOR_DATABASE}
+        projectId={projectId}
+      />
     </DetailContainer>
   );
 };

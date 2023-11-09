@@ -3,7 +3,9 @@ import React from "react";
 import DetailContainer from "./DetailContainer";
 import LinkText from "../../atomic/contents/LinkText";
 
-const ProjectLink = ({ headText, link = "https://github.com/Ahyoung-Kim" }) => {
+const ProjectLink = ({ headText, link }) => {
+  if (!link) return;
+
   return (
     <DetailContainer text={headText}>
       <LinkText link={link} />

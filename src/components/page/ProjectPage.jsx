@@ -14,7 +14,7 @@ const ProjectPage = () => {
   const id = params.id;
   const data = Data[id];
 
-  const { isMobile, isPc, isTablet } = useMediaQueries();
+  const { isPc } = useMediaQueries();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,12 +27,6 @@ const ProjectPage = () => {
       >
         <ProjectDetail data={data} />
       </ProjectDetailContainer>
-
-      {/* {isPc && (
-        <ProjectNavContainer>
-          <PorjectListNav />
-        </ProjectNavContainer>
-      )} */}
 
       <PorjectListNav projectId={id} />
 
