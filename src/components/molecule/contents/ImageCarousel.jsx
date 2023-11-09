@@ -45,6 +45,8 @@ const ImageCarousel = ({ images, mobile }) => {
 
   useEffect(() => {
     handleResize();
+    setCurrentIndex(0);
+
     if (window) {
       window.addEventListener("resize", handleResize);
 
@@ -52,7 +54,7 @@ const ImageCarousel = ({ images, mobile }) => {
         window.removeEventListener("resize", handleResize);
       };
     }
-  }, []);
+  }, [images, mobile]);
 
   return (
     <Container ref={ref} style={mobile ? { width: "50%", height } : { height }}>

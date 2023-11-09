@@ -18,21 +18,23 @@ const ProjectPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [id]);
 
   return (
     <Page>
       <ProjectDetailContainer
-        style={isPc ? { width: "80%" } : { width: "100%" }}
+        style={isPc ? { width: "75%" } : { width: "100%" }}
       >
         <ProjectDetail data={data} />
       </ProjectDetailContainer>
 
-      {isPc && (
+      {/* {isPc && (
         <ProjectNavContainer>
           <PorjectListNav />
         </ProjectNavContainer>
-      )}
+      )} */}
+
+      <PorjectListNav projectId={id} />
 
       <Footer />
     </Page>

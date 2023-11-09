@@ -17,5 +17,5 @@ export const pcHeight = (width) => {
 };
 
 export const mobileHeight = (width) => {
-  return (width * 852) / 393;
+  return (width * 807) / 393;
 };

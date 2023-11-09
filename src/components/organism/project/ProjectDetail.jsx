@@ -11,13 +11,25 @@ import ProjectDetailDescription from "./ProjectDetailDescription";
 import ProjectLink from "./ProjectLink";
 import ProjectDetailSkills from "./ProjectDetailSkills";
 import ImageCarousel from "../../molecule/contents/ImageCarousel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 const ProjectDetail = ({ data }) => {
   const { isPc, isTablet } = useMediaQueries();
 
+  const onClickBack = () => {
+    window.location.replace("/");
+  };
+
   return (
     <Container>
-      <Title className="bold-text">{data.name}</Title>
+      <TitleDiv>
+        <BackButton onClick={onClickBack}>
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </BackButton>
+
+        <Title className="bold-text">{data.name}</Title>
+      </TitleDiv>
 
       <GrayLine />
 
@@ -67,10 +79,25 @@ const Container = styled.div`
   padding: 5%;
 `;
 
+const TitleDiv = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+`;
+
+const BackButton = styled.div`
+  margin-right: 0.5rem;
+  padding: 0 0.5rem;
+  // background-color: orange;
+  cursor: pointer;
+`;
+
 const Title = styled.div`
   font-size: 1.8rem;
 `;
 
 const ImageBox = styled.div`
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 `;
