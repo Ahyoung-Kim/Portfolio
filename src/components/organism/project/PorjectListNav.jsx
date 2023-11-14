@@ -134,7 +134,8 @@ const MenuButton = styled.div`
   background-color: white;
   box-shadow: -5px 5px 10px 0 ${colors.COLOR_BOX_SHADOW};
   color: ${colors.COLOR_GRAY_ICON};
-  padding: 1rem 0.5rem;
+  // padding: 1rem 0.5rem;
+  padding: 1rem;
   border-radius: 5px 0 0 5px;
 `;
 
