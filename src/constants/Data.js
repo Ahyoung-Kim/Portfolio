@@ -266,7 +266,14 @@ export default {
     stacks: {
       frontend: ["React"],
     },
-    images: [],
+    images: [
+      "portfolio/about.png",
+      "portfolio/stacks.png",
+      "portfolio/projects.png",
+      "portfolio/archive.png",
+      "portfolio/activity.png",
+      "portfolio/project.png",
+    ],
     comment: "",
     introduction:
       "주니어 개발자 '김아영'을 소개하는 자체제작 웹 사이트 입니다. ",
