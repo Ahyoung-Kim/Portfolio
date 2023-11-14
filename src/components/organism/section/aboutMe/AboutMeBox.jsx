@@ -11,7 +11,7 @@ const AboutMeBox = ({}) => {
     <WhiteBox margin="2rem 0 0">
       <Container>
         <AboutItem icon={"faUser"} text={"김아영"} />
-        <AboutItem icon={"faCakeCandles"} text={"99.08.27"} />
+        <AboutItem icon={"faCakeCandles"} text={"1999.08.27"} />
         <AboutItem icon={"faLocationDot"} text={"경기도 평택시"} />
         <AboutItem icon={"faSquarePhone"} text={"010-6595-0827"} />
         <AboutItem icon={"faEnvelope"} text={"eileel@naver.com"} />
