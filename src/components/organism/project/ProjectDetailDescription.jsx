@@ -7,7 +7,7 @@ import styled from "styled-components";
 const ProjectDetailDescription = ({ headText, text }) => {
   return (
     <DetailContainer text={headText}>
-      <Text>{text}</Text>
+      <Text> {text}</Text>
     </DetailContainer>
   );
 };

@@ -52,7 +52,7 @@ const ProjectList = ({
       >
         <MenuHeader className="bold-text">
           <FontAwesomeIcon icon={faList} style={{ marginRight: "0.5rem" }} />
-          목록
+          프로젝트 목록
         </MenuHeader>
 
         <ProjectUl>
