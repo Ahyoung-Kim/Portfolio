@@ -55,6 +55,16 @@ export default {
     },
     images: [
       // 이미지
+      "code-tattoo/login.jpg",
+      "code-tattoo/upload.jpg",
+      "code-tattoo/draft.jpg",
+      "code-tattoo/request.jpg",
+      "code-tattoo/chat.jpg",
+      "code-tattoo/reservation.jpg",
+      "code-tattoo/confirm.jpg",
+      "code-tattoo/start.jpg",
+      "code-tattoo/info.jpg",
+      "code-tattoo/start2.jpg",
     ],
     comment: "2022 공개 SW 개발자 대회 출품작(학생부문 우수작)",
     introduction:

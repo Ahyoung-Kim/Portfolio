@@ -99,6 +99,7 @@ const Container = styled.div`
   border-radius: 0.8rem;
   border: 0.8rem solid black;
   background-color: ${colors.COLOR_GRAY_BACKGROUND};
+  // background-color: black;
 `;
 
 const ImageContainer = styled.div`
