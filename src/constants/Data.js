@@ -259,7 +259,7 @@ export default {
       "ssk/수업일지수정바텀.PNG",
       "ssk/일지생성바텀.PNG",
     ],
-    comment: "구글 플레이 스토어 출시 어플리케이션(예정)",
+    comment: "구글 플레이 스토어 출시 어플리케이션",
     introduction:
       "'수업 숙제 관리'의 줄임말로, 학생과 선생님이 함께 수업 일정을 공유하며 숙제 및 복습 현황을 관리할 수 있도록 돕는 모바일 어플리케이션입니다.",
     description:
@@ -277,6 +277,7 @@ export default {
       "학생은 숙제 인증 피드를 통해 숙제를 인증하고, 선생님은 해당 숙제에 대한 평가를 합니다.",
     ],
     mobile: true,
+    link: "https://play.google.com/store/apps/details?id=com.springbeam.susukgwan&hl=ko-KR",
   }),
   portfolio: makeData({
     id: "portfolio",
