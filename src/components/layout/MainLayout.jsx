@@ -23,6 +23,11 @@ const MainLayout = ({ children }) => {
   const [currentSection, setCurrentSection] = useState(0);
   const [openMenu, setOpenMenu] = useState(false);
 
+  const setCurrent = (value) => {
+    currentIndex.current = value;
+    setCurrentSection(value);
+  };
+
   const scrollDown = () => {
     const dest = currentIndex.current + 1;
 
@@ -31,12 +36,8 @@ const MainLayout = ({ children }) => {
     const currEl = ref.current?.children?.item(currentIndex.current);
     const nextEl = ref.current?.children?.item(dest);
 
-    // currEl.children.item(0).classList.remove("active");
-    // nextEl.children.item(0).classList.add("active");
-
     currEl.style.top = "-100%";
-    currentIndex.current = dest;
-    setCurrentSection(dest);
+    setCurrent(dest);
   };
 
   const scrollUp = () => {
@@ -47,12 +48,8 @@ const MainLayout = ({ children }) => {
     const currEl = ref.current?.children?.item(currentIndex.current);
     const prevEl = ref.current?.children?.item(dest);
 
-    // currEl.children.item(0).classList.remove("active");
-    // prevEl.children.item(0).classList.add("active");
-
     prevEl.style.top = 0;
-    currentIndex.current = dest;
-    setCurrentSection(dest);
+    setCurrent(dest);
   };
 
   const onScroll = (deltaY) => {
