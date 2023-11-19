@@ -490,7 +490,8 @@ const CourseBox = styled.div`
   // background-color: white;
   width: 100%;
   height: 20vh;
-  padding: 0 0.5rem;
+  // padding: 0 0.5rem;
+  padding: 0 10%;
 `;
 
 const CourseTopBox = styled.div`
